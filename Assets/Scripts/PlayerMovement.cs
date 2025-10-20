@@ -6,20 +6,19 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Camera playerCamera;
-    private float walkSpeed = 15f;
-    private float runSpeed = 25f;
-    public float lookSpeed = 2f;
+    private float walkSpeed = 20f;
+    private float runSpeed = 40f;
+    public float lookSpeed = 5f;
     public float lookXLimit = 45f;
     private Vector3 moveDirection = Vector3.zero;
-    private float rotationX = 0;
+    private float rotationX = 30;
+    public float rotationY = 90;
     private CharacterController characterController;
     private bool canMove = true;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     void Update()
@@ -31,14 +30,13 @@ public class PlayerMovement : MonoBehaviour
         float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0;
         float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
-        moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+        moveDirection = (forward * -curSpeedY) + (right * curSpeedX);
         characterController.Move(moveDirection * Time.deltaTime);
 
-        if (canMove)
+        if (canMove && Input.GetMouseButton(1))
         {
-            rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
     }
