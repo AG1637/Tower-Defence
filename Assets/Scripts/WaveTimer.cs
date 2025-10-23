@@ -23,17 +23,17 @@ public class Timer : MonoBehaviour
         }
         else if (remainingTime < 0)
         {
-            showText = true;
-            //Invoke("WaveSpawnerText", 1 * Time.deltaTime);               
+            showText = true;            
         }
         int minutes = Mathf.FloorToInt(remainingTime / 60);
         int seconds = Mathf.FloorToInt(remainingTime % 60);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerText.text = string.Format("Next Wave in " + "{0:00}:{1:00}", minutes, seconds);
         if (showText == true)
         {
             if (textTimer > 0)
             {
                 textTimer -= Time.deltaTime;
+                remainingTime = 0;
                 target.SetActive(true);
             }
             else if (textTimer < 0)
@@ -45,17 +45,4 @@ public class Timer : MonoBehaviour
             }
         }
     }
-
-    private void WaveSpawnerText()
-    {
-        target.SetActive(true);
-        Invoke("SpawnNextWave", 1 * Time.deltaTime);
-        target.SetActive(false);
-        remainingTime = 10;
-    }
-    private void SpawnNextWave()
-    {
-        Debug.Log("Next Wave");
-    }
-
 }
