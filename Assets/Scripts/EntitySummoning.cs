@@ -5,6 +5,7 @@ using UnityEngine;
 public class EntitySummoning : MonoBehaviour
 {
     public static List<Enemy> EnemiesInGame;
+    public static List<Transform> EnemiesInGameTransform;
     public static Dictionary<int, GameObject> EnemyPrefabs;
     public static Dictionary<int, Queue<Enemy>> EnemyObjectPools;
 
@@ -15,6 +16,7 @@ public class EntitySummoning : MonoBehaviour
         {
             EnemyPrefabs = new Dictionary<int, GameObject>();
             EnemyObjectPools = new Dictionary<int, Queue<Enemy>>();
+            EnemiesInGameTransform = new List<Transform>();
             EnemiesInGame = new List<Enemy>();
 
             EnemySummonData[] Enemies = Resources.LoadAll<EnemySummonData>("Enemies");
@@ -44,14 +46,15 @@ public class EntitySummoning : MonoBehaviour
             Queue<Enemy> ReferencedQueue = EnemyObjectPools[EnemyID];
             if (ReferencedQueue.Count > 0) //Check there are enemies left in queue
             {
-                //Dequue Enemy and initialise
+                //Dequeue Enemy and initialise
                 SummonedEnemy = ReferencedQueue.Dequeue();
                 SummonedEnemy.Init();
+                SummonedEnemy.gameObject.SetActive(true); //reactivate enemies when they are summoned
             }
             else
             {
                 //Instantiate new instance of enemy and initialise
-                GameObject NewEnemy = Instantiate(EnemyPrefabs[EnemyID], Vector3.zero, Quaternion.identity);
+                GameObject NewEnemy = Instantiate(EnemyPrefabs[EnemyID], GameLoopManager.NodePositions[0], Quaternion.identity);
                 SummonedEnemy = NewEnemy.GetComponent<Enemy>();
                 SummonedEnemy.Init();
             }
@@ -62,7 +65,18 @@ public class EntitySummoning : MonoBehaviour
             return null;
         }
 
+        EnemiesInGameTransform.Add(SummonedEnemy.transform);
+        EnemiesInGame.Add(SummonedEnemy); //Adds every new enemy that is spawned into list for current enemies
+        SummonedEnemy.ID = EnemyID;
         return SummonedEnemy;
+    }
+
+    public static void RemoveEnemy(Enemy EnemyToRemove)
+    {
+        EnemyObjectPools[EnemyToRemove.ID].Enqueue(EnemyToRemove);
+        EnemyToRemove.gameObject.SetActive(false);
+        EnemiesInGameTransform.Remove(EnemyToRemove.transform);
+        EnemiesInGame.Remove(EnemyToRemove);
     }
       
 }
