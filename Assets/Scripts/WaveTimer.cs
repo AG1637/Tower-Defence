@@ -7,12 +7,12 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI timerText;
     public float remainingTime = 180;
     public float textTimer = 2;
-    public GameObject target;
+    public GameObject NextWaveText;
     private bool showText = false;
 
     private void Start()
     {
-        target.SetActive(false);
+        NextWaveText.SetActive(false);
     }
 
     void Update()
@@ -34,13 +34,14 @@ public class Timer : MonoBehaviour
             {
                 textTimer -= Time.deltaTime;
                 remainingTime = 0;
-                target.SetActive(true);
+                NextWaveText.SetActive(true);
             }
             else if (textTimer < 0)
             {
                 showText = false;
-                target.SetActive(false);
+                NextWaveText.SetActive(false);
                 remainingTime = 10;
+                textTimer = 2;
 
             }
         }

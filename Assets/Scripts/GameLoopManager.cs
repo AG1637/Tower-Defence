@@ -22,7 +22,7 @@ public class GameLoopManager : MonoBehaviour
         EntitySummoning.Init();
 
         NodePositions = new Vector3[NodeParent.childCount];
-                for(int i =0; 1 < NodePositions.Length; i++)
+                for(int i =0; i < NodePositions.Length; i++)
         {
             NodePositions[i] = NodeParent.GetChild(i).position;
         }
