@@ -2053,13 +2053,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 691583658}
-        m_TargetAssemblyTypeName: TestTowerButtons, Assembly-CSharp
-        m_MethodName: ArcherTower
-        m_Mode: 1
+      - m_Target: {fileID: 561136298}
+        m_TargetAssemblyTypeName: TowerPlacement, Assembly-CSharp
+        m_MethodName: SetTowerToPlace
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 789469868646709916, guid: 8c67356879ddf96458019f2f229e26a5, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2796,6 +2796,7 @@ GameObject:
   - component: {fileID: 561136297}
   - component: {fileID: 561136296}
   - component: {fileID: 561136295}
+  - component: {fileID: 561136298}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2861,6 +2862,25 @@ Transform:
   - {fileID: 185770195}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &561136298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561136294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24388ec46582faa428b6334189735930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlacementCheckMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  PlacementCollideMask:
+    serializedVersion: 2
+    m_Bits: 55
+  PlayerCamera: {fileID: 185770198}
 --- !u!1 &578287323
 GameObject:
   m_ObjectHideFlags: 0
@@ -2944,13 +2964,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 691583658}
-        m_TargetAssemblyTypeName: TestTowerButtons, Assembly-CSharp
-        m_MethodName: MagicTower
-        m_Mode: 1
+      - m_Target: {fileID: 561136298}
+        m_TargetAssemblyTypeName: TowerPlacement, Assembly-CSharp
+        m_MethodName: SetTowerToPlace
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 7198040222754531893, guid: ab31a752fa1e66446abd8ca914bb7996, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3306,7 +3326,7 @@ Transform:
   m_GameObject: {fileID: 691583654}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -53.2, y: 0, z: -28.6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7516,13 +7536,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 691583658}
-        m_TargetAssemblyTypeName: TestTowerButtons, Assembly-CSharp
-        m_MethodName: CannonTower
-        m_Mode: 1
+      - m_Target: {fileID: 561136298}
+        m_TargetAssemblyTypeName: TowerPlacement, Assembly-CSharp
+        m_MethodName: SetTowerToPlace
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 3068711295053762450, guid: 5bf527b7164a7074d9f68024e7ac979e, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
