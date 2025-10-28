@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9126102119061389320}
   - component: {fileID: -6851757794076385917}
-  - component: {fileID: 2450749083001659898}
+  - component: {fileID: 383985060076998563}
   m_Layer: 3
   m_Name: ArcherTower
   m_TagString: CannotPlaceTowers
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 789469868646709916}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.9599833, y: 2.3400002, z: 27.499996}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5aa5d67fa6fb7439866eec2ea1f3b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &2450749083001659898
+--- !u!65 &383985060076998563
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,8 +66,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.726571, y: 1.285398, z: 3.4141273}
-  m_Center: {x: -0.035234295, y: 0.681364, z: -0.10830879}
+  m_Size: {x: 5, y: 0.27487904, z: 5}
+  m_Center: {x: 0, y: 0.36256072, z: 0}
 --- !u!1001 &1901963811756364506
 PrefabInstance:
   m_ObjectHideFlags: 0

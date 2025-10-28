@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CanPlaceTowers
   - CannotPlaceTowers
+  - Path
   layers:
   - Default
   - TransparentFX

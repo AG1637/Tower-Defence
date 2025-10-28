@@ -8,15 +8,18 @@ using UnityEngine.UIElements;
 
 public class GameLoopManager : MonoBehaviour
 {
+    public static GameLoopManager Instance;
     public static Vector3[] NodePositions;
     private static Queue<Enemy> EnemiesToRemove;
     private static Queue<int> EnemyIDsToSummon;
     public Transform NodeParent;
     public bool LoopShouldEnd;
+    public bool Paused;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Instance = this;
         EnemyIDsToSummon = new Queue<int>();
         EnemiesToRemove = new Queue<Enemy>();
         EntitySummoning.Init();
