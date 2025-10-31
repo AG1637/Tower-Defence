@@ -10,16 +10,20 @@ public class GameLoopManager : MonoBehaviour
 {
     public static GameLoopManager Instance;
     public static Vector3[] NodePositions;
+    public static float[] NodeDistance;
+    public static List<TowerBehaviour> TowersInGame;
+
     private static Queue<Enemy> EnemiesToRemove;
     private static Queue<int> EnemyIDsToSummon;
+
     public Transform NodeParent;
     public bool LoopShouldEnd;
     public bool Paused;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Instance = this;
+        Instance = this; //used to reference GameLoopManager from other scripts
+        TowersInGame = new List<TowerBehaviour>();
         EnemyIDsToSummon = new Queue<int>();
         EnemiesToRemove = new Queue<Enemy>();
         EntitySummoning.Init();
@@ -29,7 +33,13 @@ public class GameLoopManager : MonoBehaviour
         {
             NodePositions[i] = NodeParent.GetChild(i).position;
         }
-        
+
+        NodeDistance = new float[NodePositions.Length - 1];
+        for (int i = 0; i < NodeDistance.Length; i++)
+        {
+            NodeDistance[i] = Vector3.Distance(NodePositions[i], NodePositions[i + 1]);
+        }
+
         StartCoroutine(GameLoop());
         InvokeRepeating("SummonTest", 0f, 1f);
     }
@@ -100,8 +110,6 @@ public class GameLoopManager : MonoBehaviour
             NodeIndices.Dispose();
             EnemyAccess.Dispose();
             NodesToUse.Dispose();
-
-            //Spawn Towers
 
            yield return null;
         }

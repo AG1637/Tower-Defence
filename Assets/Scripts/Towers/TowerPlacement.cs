@@ -23,7 +23,7 @@ public class TowerPlacement : MonoBehaviour
 
     void Update()
     {
-        if (GameLoopManager.Instance.Paused)
+        if (GameLoopManager.Instance.Paused) //reference to GameLoopManager and checks if paused - if paused, do not allow tower placement
         {
             return;
         }
@@ -33,25 +33,30 @@ public class TowerPlacement : MonoBehaviour
             RaycastHit HitInfo;
             if (Physics.Raycast(camray, out HitInfo, 300f, PlacementCollideMask))
             {
-                SelectedTower.transform.position = HitInfo.point;
+                SelectedTower.transform.position = HitInfo.point;//moves tower to mouse position
+            }
+
+            if(Input.GetKeyDown(KeyCode.Q))//allows player to cancel tower placement by pressing Q
+            {
+                Destroy(SelectedTower);
+                SelectedTower = null;
+                return;
             }
 
             if (Input.GetMouseButtonDown(0) && HitInfo.collider.gameObject != null)
             {
-                //if ((!HitInfo.collider.gameObject.CompareTag("CannotPlaceTowers") && !HitInfo.collider.gameObject.CompareTag("Path")) &&
-                if (HitInfo.collider.gameObject.CompareTag("CanPlaceTowers"))
+                if (HitInfo.collider.gameObject.CompareTag("CanPlaceTowers"))//checks if tower is being placed on valid ground
                 {
                     BoxCollider TowerCollider = SelectedTower.gameObject.GetComponent<BoxCollider>();
                     TowerCollider.isTrigger = true;
-                    //BoxCollider PathCollider = Path.gameObject.GetComponentInChildren<BoxCollider>();
-                    //PathCollider.isTrigger = true;
 
                     Vector3 BoxCenter = SelectedTower.gameObject.transform.position + TowerCollider.center;
                     Vector3 HalfExtents = TowerCollider.size / 2;
                     if (!Physics.CheckBox(BoxCenter, HalfExtents, Quaternion.identity, PlacementCheckMask, QueryTriggerInteraction.Ignore))
                     {
+                        GameLoopManager.TowersInGame.Add(SelectedTower.GetComponent<TowerBehaviour>()); // Add tower to list of towers in game for targeting purposes
+
                         TowerCollider.isTrigger = false;
-                        //PathCollider.isTrigger = false;
                         SelectedTower = null;
                     }
                     else
