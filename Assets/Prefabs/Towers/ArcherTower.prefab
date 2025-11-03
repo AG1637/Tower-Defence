@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9126102119061389320}
   - component: {fileID: -6851757794076385917}
   - component: {fileID: 383985060076998563}
+  - component: {fileID: -7017607482953371106}
   m_Layer: 3
   m_Name: ArcherTower
   m_TagString: CannotPlaceTowers
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789469868646709916}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
@@ -34,7 +35,7 @@ Transform:
   - {fileID: 1869928897564638206}
   - {fileID: 8233939182619491873}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &-6851757794076385917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,6 +48,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5aa5d67fa6fb7439866eec2ea1f3b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemiesLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  TowerPivot: {fileID: 1869928897564638206}
+  Target: {fileID: 0}
+  Damage: 10
+  FireRate: 10
+  Range: 10
 --- !u!65 &383985060076998563
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -68,6 +77,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 0.27487904, z: 5}
   m_Center: {x: 0, y: 0.36256072, z: 0}
+--- !u!135 &-7017607482953371106
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789469868646709916}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2750933461440661599
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2750933461440661599}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.52, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
@@ -134,19 +164,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 831b946ecae90254f85f8befcadf0235, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 831b946ecae90254f85f8befcadf0235, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 831b946ecae90254f85f8befcadf0235, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 831b946ecae90254f85f8befcadf0235, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 831b946ecae90254f85f8befcadf0235, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -154,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 831b946ecae90254f85f8befcadf0235, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 831b946ecae90254f85f8befcadf0235, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

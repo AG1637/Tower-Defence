@@ -111,6 +111,15 @@ public class GameLoopManager : MonoBehaviour
             EnemyAccess.Dispose();
             NodesToUse.Dispose();
 
+            //Tick Towers
+
+            foreach(TowerBehaviour tower in TowersInGame)
+            {
+                //tower.Target = TowerTargeting.GetTarget(tower, TowerTargeting.TargetType.First);
+                tower.Tick();
+            }
+
+
            yield return null;
         }
     }
