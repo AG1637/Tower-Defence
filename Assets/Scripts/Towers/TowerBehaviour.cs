@@ -4,10 +4,11 @@ using UnityEngine;
 public class TowerBehaviour : MonoBehaviour
 {
     public LayerMask EnemiesLayer;
-    
+
+    public float rotationSpeed = 30;
     public Transform TowerPivot;
     public GameObject Target;
-    
+
     public float Damage = 10;
     public float FireRate = 10;
     public float Range = 10;
@@ -19,7 +20,7 @@ public class TowerBehaviour : MonoBehaviour
         Delay = 1f / FireRate;
     }
 
-    private void OnTriggerEnter(Collider enemyCollider)
+    private void OnTriggerStay(Collider enemyCollider)
     {
         if (Target == null)
         {
@@ -27,7 +28,10 @@ public class TowerBehaviour : MonoBehaviour
         }
         else
         {
-            TowerPivot.transform.rotation = Quaternion.LookRotation(enemyCollider.transform.position - transform.position);
+            Vector3 direction = Target.transform.position - TowerPivot.transform.position;
+            Quaternion rotation = Quaternion.Slerp(TowerPivot.transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
+            TowerPivot.transform.rotation = rotation;
+            Debug.DrawLine(TowerPivot.transform.position, TowerPivot.transform.position + direction * 2f, UnityEngine.Color.red, 0.5f);
         }
     }
 
@@ -37,7 +41,7 @@ public class TowerBehaviour : MonoBehaviour
     }
     void Update()
     {
-        Debug.DrawLine(this.transform.position, this.transform.position + this.TowerPivot.transform.forward * 10, UnityEngine.Color.red, 2);
+        
 
     }
 

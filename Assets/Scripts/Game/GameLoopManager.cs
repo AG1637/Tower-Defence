@@ -41,12 +41,6 @@ public class GameLoopManager : MonoBehaviour
         }
 
         StartCoroutine(GameLoop());
-        InvokeRepeating("SummonTest", 0f, 1f);
-    }
-
-    void SummonTest()
-    {
-        EnqueueEnemyIDToSummon(1);
     }
 
     IEnumerator GameLoop() //iteration
@@ -111,14 +105,14 @@ public class GameLoopManager : MonoBehaviour
             EnemyAccess.Dispose();
             NodesToUse.Dispose();
 
-            //Tick Towers
+            /*Tick Towers
 
             foreach(TowerBehaviour tower in TowersInGame)
             {
-                //tower.Target = TowerTargeting.GetTarget(tower, TowerTargeting.TargetType.First);
+                tower.Target = TowerTargeting.GetTarget(tower, TowerTargeting.TargetType.First);
                 tower.Tick();
             }
-
+            */
 
            yield return null;
         }

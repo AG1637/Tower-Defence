@@ -87,10 +87,10 @@ public class TowerPlacement : MonoBehaviour
 
     public void SetTowerToPlace(GameObject tower)
     {
-        if (SelectedTower != null) //maybe not needed
-        {
-            Destroy(SelectedTower);
-        }
+        //if (SelectedTower != null) //maybe not needed
+        //{
+        //   Destroy(SelectedTower);
+        //}
         SelectedTower = Instantiate(tower, Vector3.zero, Quaternion.identity);
     }
 
