@@ -4,5 +4,5 @@ using UnityEngine;
 public class EnemySummonData : ScriptableObject
 {
     public GameObject EnemyPrefab;
-    public int EnemyID;
+    public int enemyID;
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TowerTargeting
 {
-    public enum TargetType
+    /*public enum TargetType
     {
         First,
         Last,
@@ -157,5 +157,5 @@ public class TowerTargeting
 
         }
 
-    }
+    }*/
 }

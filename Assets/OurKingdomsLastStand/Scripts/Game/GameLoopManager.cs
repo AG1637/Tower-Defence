@@ -8,36 +8,36 @@ using UnityEngine.UIElements;
 
 public class GameLoopManager : MonoBehaviour
 {
-    public static GameLoopManager Instance;
-    public static Vector3[] NodePositions;
-    public static float[] NodeDistance;
+    public static GameLoopManager instance;
+    public static Vector3[] nodePositions;
+    public static float[] nodeDistance;
     public static List<TowerBehaviour> TowersInGame;
 
     private static Queue<Enemy> EnemiesToRemove;
     private static Queue<int> EnemyIDsToSummon;
 
     public Transform NodeParent;
-    public bool LoopShouldEnd;
-    public bool Paused;
+    public bool loopShouldEnd;
+    public bool paused;
 
     void Start()
     {
-        Instance = this; //used to reference GameLoopManager from other scripts
+        instance = this; //used to reference GameLoopManager from other scripts
         TowersInGame = new List<TowerBehaviour>();
         EnemyIDsToSummon = new Queue<int>();
         EnemiesToRemove = new Queue<Enemy>();
-        EntitySummoning.Init();
+        //EntitySummoning.Init();
 
-        NodePositions = new Vector3[NodeParent.childCount];
-                for(int i =0; i < NodePositions.Length; i++)
+        nodePositions = new Vector3[NodeParent.childCount];
+                for(int i =0; i < nodePositions.Length; i++)
         {
-            NodePositions[i] = NodeParent.GetChild(i).position;
+            nodePositions[i] = NodeParent.GetChild(i).position;
         }
 
-        NodeDistance = new float[NodePositions.Length - 1];
-        for (int i = 0; i < NodeDistance.Length; i++)
+        nodeDistance = new float[nodePositions.Length - 1];
+        for (int i = 0; i < nodeDistance.Length; i++)
         {
-            NodeDistance[i] = Vector3.Distance(NodePositions[i], NodePositions[i + 1]);
+            nodeDistance[i] = Vector3.Distance(nodePositions[i], nodePositions[i + 1]);
         }
 
         StartCoroutine(GameLoop());
@@ -45,8 +45,9 @@ public class GameLoopManager : MonoBehaviour
 
     IEnumerator GameLoop() //iteration
     {
-        while (LoopShouldEnd == false)
+        while (loopShouldEnd == false)
         {
+            /*
             //Spawn Enemies
             if(EnemyIDsToSummon.Count > 0)
             {
@@ -68,15 +69,15 @@ public class GameLoopManager : MonoBehaviour
 
             //Move Enemies
 
-            NativeArray<Vector3> NodesToUse = new NativeArray<Vector3>(NodePositions, Allocator.TempJob);
+            NativeArray<Vector3> NodesToUse = new NativeArray<Vector3>(nodePositions, Allocator.TempJob);
             NativeArray<float> EnemySpeeds = new NativeArray<float>(EntitySummoning.EnemiesInGame.Count, Allocator.TempJob);
             NativeArray<int> NodeIndices = new NativeArray<int>(EntitySummoning.EnemiesInGame.Count, Allocator.TempJob);
             TransformAccessArray EnemyAccess = new TransformAccessArray(EntitySummoning.EnemiesInGameTransform.ToArray(), 2);
 
             for (int i = 0; i < EntitySummoning.EnemiesInGame.Count; i++)
             {
-                EnemySpeeds[i] = EntitySummoning.EnemiesInGame[i].Speed;
-                NodeIndices[i] = EntitySummoning.EnemiesInGame[i].NodeIndex;
+                EnemySpeeds[i] = EntitySummoning.EnemiesInGame[i].speed;
+                NodeIndices[i] = EntitySummoning.EnemiesInGame[i].nodeIndex;
             }
 
             MoveEnemiesJob MoveJob = new MoveEnemiesJob
@@ -92,9 +93,9 @@ public class GameLoopManager : MonoBehaviour
 
             for (int i = 0; i < EntitySummoning.EnemiesInGame.Count; i++)
             {
-                EntitySummoning.EnemiesInGame[i].NodeIndex = NodeIndices[i];
+                EntitySummoning.EnemiesInGame[i].nodeIndex = NodeIndices[i];
 
-                if(EntitySummoning.EnemiesInGame[i].NodeIndex == NodePositions.Length)
+                if(EntitySummoning.EnemiesInGame[i].nodeIndex == nodePositions.Length)
                 {
                     EnqueueEnemyToRemove(EntitySummoning.EnemiesInGame[i]);
                 }
@@ -104,8 +105,8 @@ public class GameLoopManager : MonoBehaviour
             NodeIndices.Dispose();
             EnemyAccess.Dispose();
             NodesToUse.Dispose();
-
-            /*Tick Towers
+            
+            Tick Towers
 
             foreach(TowerBehaviour tower in TowersInGame)
             {

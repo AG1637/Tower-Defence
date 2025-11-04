@@ -216,7 +216,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3494,8 +3495,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NodeParent: {fileID: 494009854}
-  LoopShouldEnd: 0
-  Paused: 0
+  loopShouldEnd: 0
+  paused: 0
 --- !u!114 &691583657
 MonoBehaviour:
   m_ObjectHideFlags: 0

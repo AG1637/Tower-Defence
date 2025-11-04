@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EntitySummoning : MonoBehaviour
 {
-    public static List<Enemy> EnemiesInGame;
+    /*public static List<Enemy> EnemiesInGame;
     public static List<Transform> EnemiesInGameTransform;
     public static Dictionary<int, GameObject> EnemyPrefabs;
     public static Dictionary<int, Queue<Enemy>> EnemyObjectPools;
@@ -24,8 +24,8 @@ public class EntitySummoning : MonoBehaviour
 
             foreach (EnemySummonData enemy in Enemies)
             {
-                EnemyPrefabs.Add(enemy.EnemyID, enemy.EnemyPrefab);
-                EnemyObjectPools.Add(enemy.EnemyID, new Queue<Enemy>());
+                EnemyPrefabs.Add(enemy.enemyID, enemy.EnemyPrefab);
+                EnemyObjectPools.Add(enemy.enemyID, new Queue<Enemy>());
             }
 
             IsInitialised = true;
@@ -54,7 +54,7 @@ public class EntitySummoning : MonoBehaviour
             else
             {
                 //Instantiate new instance of enemy and initialise
-                GameObject NewEnemy = Instantiate(EnemyPrefabs[EnemyID], GameLoopManager.NodePositions[0], Quaternion.identity);
+                GameObject NewEnemy = Instantiate(EnemyPrefabs[EnemyID], GameLoopManager.nodePositions[0], Quaternion.identity);
                 SummonedEnemy = NewEnemy.GetComponent<Enemy>();
                 SummonedEnemy.Init();
             }
@@ -78,5 +78,5 @@ public class EntitySummoning : MonoBehaviour
         EnemiesInGameTransform.Remove(EnemyToRemove.transform);
         EnemiesInGame.Remove(EnemyToRemove);
     }
-      
+      */
 }

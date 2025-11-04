@@ -120,10 +120,10 @@ GameObject:
   - component: {fileID: 3996889967132012687}
   - component: {fileID: -7583288886398475041}
   - component: {fileID: -625037371385762227}
-  - component: {fileID: 9186797491799355275}
+  - component: {fileID: -7625646736908735260}
   m_Layer: 6
   m_Name: Enemy
-  m_TagString: CannotPlaceTowers
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,10 +156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e141cebf349c0f49a3e2adbe7c8e6cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NodeIndex: 0
-  MaxHealth: 5
-  Health: 0
-  Speed: 20
+  speed: 10
+  nodeIndex: 0
+  maxHealth: 100
+  health: 0
   ID: 0
 --- !u!65 &-7583288886398475041
 BoxCollider:
@@ -209,7 +209,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &9186797491799355275
+--- !u!114 &-7625646736908735260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,6 +218,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4909996206955255990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8246c1f05ea6b58479e41e0c8e1c5fbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e141cebf349c0f49a3e2adbe7c8e6cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
+  nodeIndex: 0
+  maxHealth: 100
+  health: 0
+  ID: 0
