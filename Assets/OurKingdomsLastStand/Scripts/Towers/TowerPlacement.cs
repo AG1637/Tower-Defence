@@ -11,7 +11,7 @@ public class TowerPlacement : MonoBehaviour
     [SerializeField] private LayerMask PlacementCollideMask;
     [SerializeField] private Camera PlayerCamera;
 
-    private GameObject SelectedTower;
+    private GameObject selectedTower;
     public float textTimer = 2;
     public GameObject CannotPlaceTowerText;
     private bool showText = false;
@@ -27,19 +27,19 @@ public class TowerPlacement : MonoBehaviour
         {
             return;
         }
-        if(SelectedTower != null)
+        if(selectedTower != null)
         {
             Ray camray = PlayerCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit HitInfo;
             if (Physics.Raycast(camray, out HitInfo, 300f, PlacementCollideMask))
             {
-                SelectedTower.transform.position = HitInfo.point;//moves tower to mouse position
+                selectedTower.transform.position = HitInfo.point;//moves tower to mouse position
             }
 
             if(Input.GetKeyDown(KeyCode.Q))//allows player to cancel tower placement by pressing Q
             {
-                Destroy(SelectedTower);
-                SelectedTower = null;
+                Destroy(selectedTower);
+                selectedTower = null;
                 return;
             }
 
@@ -47,17 +47,17 @@ public class TowerPlacement : MonoBehaviour
             {
                 if (HitInfo.collider.gameObject.CompareTag("CanPlaceTowers"))//checks if tower is being placed on valid ground
                 {
-                    BoxCollider TowerCollider = SelectedTower.gameObject.GetComponent<BoxCollider>();
+                    BoxCollider TowerCollider = selectedTower.gameObject.GetComponent<BoxCollider>();
                     TowerCollider.isTrigger = true;
 
-                    Vector3 BoxCenter = SelectedTower.gameObject.transform.position + TowerCollider.center;
+                    Vector3 BoxCenter = selectedTower.gameObject.transform.position + TowerCollider.center;
                     Vector3 HalfExtents = TowerCollider.size / 2;
                     if (!Physics.CheckBox(BoxCenter, HalfExtents, Quaternion.identity, PlacementCheckMask, QueryTriggerInteraction.Ignore))
                     {
-                        GameLoopManager.TowersInGame.Add(SelectedTower.GetComponent<TowerBehaviour>()); // Add tower to list of towers in game for targeting purposes
+                        GameLoopManager.TowersInGame.Add(selectedTower.GetComponent<TowerBehaviour>()); // Add tower to list of towers in game for targeting purposes
 
                         TowerCollider.isTrigger = false;
-                        SelectedTower = null;
+                        selectedTower = null;
                     }
                     else
                     {
@@ -87,11 +87,7 @@ public class TowerPlacement : MonoBehaviour
 
     public void SetTowerToPlace(GameObject tower)
     {
-        //if (SelectedTower != null) //maybe not needed
-        //{
-        //   Destroy(SelectedTower);
-        //}
-        SelectedTower = Instantiate(tower, Vector3.zero, Quaternion.identity);
+        selectedTower = Instantiate(tower, Vector3.zero, Quaternion.identity);
     }
 
     public void HideTowerText()

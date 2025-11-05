@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789469868646709916}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 8233939182619491873}
   - {fileID: 8320284945315990404}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &383985060076998563
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -75,7 +75,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 50
   m_Center: {x: 0, y: 0, z: 0}
@@ -91,19 +91,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5aa5d67fa6fb7439866eec2ea1f3b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemiesLayer:
+  enemyLayers:
     serializedVersion: 2
     m_Bits: 64
-  rotationSpeed: 30
-  towerPivot: {fileID: 5729456426543173174}
-  target: {fileID: 0}
-  canShoot: 0
-  bulletSpeed: 150
-  damage: 10
-  fireRate: 10
+  rotationSpeed: 20
   range: 10
-  bulletSpawnTransform: {fileID: 8320284945315990404}
-  bulletPrefab: {fileID: 3560227042497449874, guid: b3b691724d7958f4da54b1433737634a, type: 3}
+  towerPivot: {fileID: 5729456426543173174}
+  bulletSpawn: {fileID: 8320284945315990404}
+  bulletPool: {fileID: 0}
+  bulletSpeed: 20
+  bulletDamage: 10
+  fireRate: 1
 --- !u!1 &2325916309013777608
 GameObject:
   m_ObjectHideFlags: 0
