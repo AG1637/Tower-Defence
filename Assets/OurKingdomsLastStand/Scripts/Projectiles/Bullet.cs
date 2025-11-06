@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     public float lifeTime = 5f;
 
     [Header("Damage")]
-    public float damage = 10f;
+    public float damage;
     public LayerMask hitLayers;
 
     [Header("VFX")]

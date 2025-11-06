@@ -3,7 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Enemy Stats")]
-    public float maxHealth = 10;
+    public float maxHealth = 100;
     public float health;
     public GameObject deathEffect;
 
@@ -13,28 +13,24 @@ public class Enemy : MonoBehaviour
     public float speed = 25;
 
     private Vector3 start;
-
-    void Start()
+    void Awake()
     {
         start = transform.position;
         direction = direction.normalized;
+        health = maxHealth;
     }
 
     void Update()
     {
         //temporary movement
-        float t = Mathf.PingPong(Time.time * speed, distance);
-        transform.position = start + direction * (t - distance * 0.5f);
-    }
-    void Awake()
-    {
-        health = maxHealth;
+        //float t = Mathf.PingPong(Time.time * speed, distance);
+        //transform.position = start + direction * (t - distance * 0.5f);
     }
 
     public void TakeDamage(float amount)
     {
         health -= amount;
-        if (health <= 0f)
+        if (health <= 0)
         {
             Die();
         }

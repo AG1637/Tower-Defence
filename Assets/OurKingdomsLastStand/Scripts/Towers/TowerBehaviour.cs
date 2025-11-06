@@ -14,10 +14,11 @@ public class TowerBehaviour : MonoBehaviour
     public Transform bulletSpawn;
     public ProjectilePool bulletPool;
     public float bulletSpeed = 20f;
-    public float bulletDamage = 10f;
+    //public float bulletDamage = 10f;
     public float fireRate = 1f;
 
     private float cooldown;
+    public bool canShoot = true; //shoud be false but needs a reference in placement script to change to true once placed
 
     public void Initialize(ProjectilePool pool, Transform bulletSpawnTransform, Transform towerPivotTransform = null)
     {
@@ -38,11 +39,11 @@ public class TowerBehaviour : MonoBehaviour
         var target = FindNearestEnemy();
         if (target != null)
         {
-            Vector3 dir = (target.position - transform.position);
-            dir.y = 0f; // keep only horizontal rotation
+            Vector3 direction = (target.position - transform.position);
+            direction.y = 0f; // keep only horizontal rotation
             if (towerPivot != null)
             {
-                var desiredRot = Quaternion.LookRotation(dir);
+                var desiredRot = Quaternion.LookRotation(direction);
                 towerPivot.rotation = Quaternion.Lerp(towerPivot.rotation, desiredRot, Time.deltaTime * rotationSpeed);
             }
 
@@ -58,16 +59,16 @@ public class TowerBehaviour : MonoBehaviour
 
     Transform FindNearestEnemy()
     {
-        Collider[] cols = Physics.OverlapSphere(transform.position, range, enemyLayers);
+        Collider[] collisions = Physics.OverlapSphere(transform.position, range, enemyLayers);
         Transform best = null;
-        float bestDist = float.MaxValue;
-        foreach (var c in cols)
+        float bestDistance = float.MaxValue;
+        foreach (var c in collisions)
         {
-            float d = Vector3.SqrMagnitude(c.transform.position - transform.position);
-            if (d < bestDist)
+            float distance = Vector3.SqrMagnitude(c.transform.position - transform.position);
+            if (distance < bestDistance)
             {
                 best = c.transform;
-                bestDist = d;
+                bestDistance = distance;
             }
         }
         return best;
@@ -75,37 +76,18 @@ public class TowerBehaviour : MonoBehaviour
 
     void Shoot(Transform target)
     {
-        if (bulletPool == null || bulletSpawn == null) return;
+            if (bulletPool == null || bulletSpawn == null)
+            {
+                return;
+            }
+            var projGO = bulletPool.Spawn(bulletSpawn.position, bulletSpawn.rotation);
+            var proj = projGO.GetComponent<Bullet>();
+            if (proj != null)
+            {
+                //proj.damage = bulletDamage;
+                proj.speed = bulletSpeed;
+            }
 
-        var projGO = bulletPool.Spawn(bulletSpawn.position, bulletSpawn.rotation);
-        var proj = projGO.GetComponent<Bullet>();
-        if (proj != null)
-        {
-            proj.damage = bulletDamage;
-            proj.speed = bulletSpeed;
-        }
-
-        //play flash/sound here
+            //play flash/sound here
     }
-
-
-    /*
-    private void OnTriggerStay(Collider enemyCollider)
-    {
-        if (target == null) //if no target, find one in range
-        {
-            target = enemyCollider.transform.parent.gameObject;
-            canShoot = false;
-        }
-        else //if there is a target, rotate towards it then shoot
-        {
-            Vector3 direction = target.transform.position - towerPivot.transform.position;
-            Quaternion rotation = Quaternion.Slerp(towerPivot.transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
-            towerPivot.transform.rotation = rotation;
-            Debug.DrawLine(towerPivot.transform.position, towerPivot.transform.position + direction * 2f, UnityEngine.Color.red, 0.5f);
-            canShoot = true;
-        }
-    }
-    */
-
 }

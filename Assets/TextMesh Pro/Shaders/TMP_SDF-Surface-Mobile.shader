@@ -24,7 +24,7 @@ Properties {
 	_WeightNormal		("Weight Normal", float) = 0
 	_WeightBold			("Weight Bold", float) = 0.5
 
-	// Should not be directly exposed to the user
+	// Should not be directionectly exposed to the user
 	_ShaderFlags		("Flags", float) = 0
 	_ScaleRatioA		("Scale RatioA", float) = 1
 	_ScaleRatioB		("Scale RatioB", float) = 1
@@ -59,7 +59,7 @@ SubShader {
 	Cull [_CullMode]
 
 	CGPROGRAM
-	#pragma surface PixShader Lambert alpha:blend vertex:VertShader noforwardadd nolightmap nodirlightmap
+	#pragma surface PixShader Lambert alpha:blend vertex:VertShader noforwardadd nolightmap nodirectionlightmap
 	#pragma target 3.0
 	#pragma shader_feature __ GLOW_ON
 

@@ -49,13 +49,11 @@ public class TowerPlacement : MonoBehaviour
                 {
                     BoxCollider TowerCollider = selectedTower.gameObject.GetComponent<BoxCollider>();
                     TowerCollider.isTrigger = true;
-
                     Vector3 BoxCenter = selectedTower.gameObject.transform.position + TowerCollider.center;
                     Vector3 HalfExtents = TowerCollider.size / 2;
                     if (!Physics.CheckBox(BoxCenter, HalfExtents, Quaternion.identity, PlacementCheckMask, QueryTriggerInteraction.Ignore))
                     {
-                        GameLoopManager.TowersInGame.Add(selectedTower.GetComponent<TowerBehaviour>()); // Add tower to list of towers in game for targeting purposes
-
+                        Debug.Log("Tower Placed");
                         TowerCollider.isTrigger = false;
                         selectedTower = null;
                     }
