@@ -20,13 +20,6 @@ public class Enemy : MonoBehaviour
         health = maxHealth;
     }
 
-    void Update()
-    {
-        //temporary movement
-        //float t = Mathf.PingPong(Time.time * speed, distance);
-        //transform.position = start + direction * (t - distance * 0.5f);
-    }
-
     public void TakeDamage(float amount)
     {
         health -= amount;
@@ -46,4 +39,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other) //detect when enemy reaches the end point and destroys itself as well as reducing player health
+    {
+        if (other.CompareTag("End"))
+        {
+            //reduce player health
+            Debug.Log("Enemy reached the End!");
+            Destroy(gameObject);
+        }
+    }
 }
