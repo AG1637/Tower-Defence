@@ -100,8 +100,8 @@ MonoBehaviour:
   bulletSpawn: {fileID: 8320284945315990404}
   bulletPool: {fileID: 0}
   bulletSpeed: 20
-  bulletDamage: 10
   fireRate: 1
+  canShoot: 0
 --- !u!1 &2325916309013777608
 GameObject:
   m_ObjectHideFlags: 0

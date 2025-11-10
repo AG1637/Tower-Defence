@@ -16,6 +16,7 @@ public class TowerPlacement : MonoBehaviour
     public GameObject CannotPlaceTowerText;
     private bool showText = false;
 
+
     private void Start()
     {
         CannotPlaceTowerText.SetActive(false);
@@ -55,6 +56,7 @@ public class TowerPlacement : MonoBehaviour
                     {
                         Debug.Log("Tower Placed");
                         TowerCollider.isTrigger = false;
+                        selectedTower.GetComponent<TowerBehaviour>().canShoot = true;
                         selectedTower = null;
                     }
                     else

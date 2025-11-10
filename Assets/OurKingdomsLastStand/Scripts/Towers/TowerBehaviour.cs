@@ -18,7 +18,7 @@ public class TowerBehaviour : MonoBehaviour
     public float fireRate = 1f;
 
     private float cooldown;
-    public bool canShoot = true; //shoud be false but needs a reference in placement script to change to true once placed
+    public bool canShoot = false;
 
     public void Initialize(ProjectilePool pool, Transform bulletSpawnTransform, Transform towerPivotTransform = null)
     {
@@ -37,7 +37,7 @@ public class TowerBehaviour : MonoBehaviour
     void Update()
     {
         var target = FindNearestEnemy();
-        if (target != null)
+        if (target != null && canShoot == true)
         {
             Vector3 direction = (target.position - transform.position);
             direction.y = 0f; // keep only horizontal rotation
