@@ -40,7 +40,7 @@ public class TowerBehaviour : MonoBehaviour
         if (target != null && canShoot == true)
         {
             Vector3 direction = (target.position - transform.position);
-            direction.y = 0f; // keep only horizontal rotation
+            direction.y = 0f; //keep only horizontal rotation
             if (towerPivot != null)
             {
                 var desiredRot = Quaternion.LookRotation(direction);

@@ -47,5 +47,20 @@ public class Enemy : MonoBehaviour
             Debug.Log("Enemy reached the End!");
             Destroy(gameObject);
         }
+        if (other.CompareTag("Bullet"))
+        {
+            //Try to apply damage
+                                 
+            TakeDamage(20);
+            
+            /*if (hitEffectPrefab != null)
+            {
+                Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
+            }*/
+
+            other.gameObject.SetActive(false);
+            Debug.Log("Bullet Hit " + other.gameObject.name);
+            //health.TakeDamage(20);
+        }
     }
 }
