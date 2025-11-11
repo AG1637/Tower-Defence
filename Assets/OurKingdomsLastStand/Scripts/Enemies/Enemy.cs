@@ -8,11 +8,12 @@ public class Enemy : MonoBehaviour
     public float maxHealth = 100;
     public float health;
     public GameObject deathEffect;
-    private float movementSpeed = 10;
+    private float movementSpeed = 15;
     private Vector3 direction = Vector3.right;
 
     private Vector3 start;
-    public float bulletDamage;
+    public float bulletDamage; //the amount of damage that the bullet that hit the enemy does to the enemy
+    public float damageToEnd; //this the amount of damage that the castle will take if the enemy reaches the end point
     void Awake()
     {
         start = transform.position;

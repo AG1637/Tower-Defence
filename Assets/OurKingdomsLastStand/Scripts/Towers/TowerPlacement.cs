@@ -6,7 +6,6 @@ using Unity.VisualScripting;
 
 public class TowerPlacement : MonoBehaviour
 {
-
     [SerializeField] private LayerMask PlacementCheckMask;
     [SerializeField] private LayerMask PlacementCollideMask;
     [SerializeField] private Camera PlayerCamera;
