@@ -13,8 +13,6 @@ public class TowerBehaviour : MonoBehaviour
     [Header("Bullet Shooting")]
     public Transform bulletSpawn;
     public ProjectilePool bulletPool;
-    public float bulletSpeed = 20f;
-    //public float bulletDamage = 10f;
     public float fireRate = 1f;
 
     private float cooldown;
@@ -82,12 +80,6 @@ public class TowerBehaviour : MonoBehaviour
             }
             var projGO = bulletPool.Spawn(bulletSpawn.position, bulletSpawn.rotation);
             var proj = projGO.GetComponent<Bullet>();
-            if (proj != null)
-            {
-                //proj.damage = bulletDamage;
-                proj.speed = bulletSpeed;
-            }
-
             //play flash/sound here
     }
 }

@@ -1,4 +1,6 @@
 using UnityEngine;
+using Unity.AI;
+using Unity.Behavior;
 
 public class Enemy : MonoBehaviour
 {
@@ -6,23 +8,23 @@ public class Enemy : MonoBehaviour
     public float maxHealth = 100;
     public float health;
     public GameObject deathEffect;
-
-    [Header("Movement")]
+    private float movementSpeed = 10;
     private Vector3 direction = Vector3.right;
-    public float distance = 100;
-    public float speed = 25;
 
     private Vector3 start;
+    public float bulletDamage;
     void Awake()
     {
         start = transform.position;
         direction = direction.normalized;
         health = maxHealth;
+        BehaviorGraphAgent behaviour = GetComponent<BehaviorGraphAgent>(); //gets reference to the speed in the behaviour graph
+        behaviour.BlackboardReference.SetVariableValue("Speed", movementSpeed);
     }
 
     public void TakeDamage(float amount)
     {
-        health -= amount;
+        health -= amount; 
         if (health <= 0)
         {
             Die();
@@ -47,20 +49,15 @@ public class Enemy : MonoBehaviour
             Debug.Log("Enemy reached the End!");
             Destroy(gameObject);
         }
+
         if (other.CompareTag("Bullet"))
         {
-            //Try to apply damage
-                                 
-            TakeDamage(20);
-            
+            TakeDamage(other.GetComponent<Bullet>().damage); //gets reference to bullet script to get damage amount       
             /*if (hitEffectPrefab != null)
             {
                 Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
             }*/
-
-            other.gameObject.SetActive(false);
-            Debug.Log("Bullet Hit " + other.gameObject.name);
-            //health.TakeDamage(20);
+            other.gameObject.SetActive(false); //makes bullet disappear
         }
     }
 }

@@ -24,7 +24,7 @@ public class TowerPlacement : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.paused) //reference to GameLoopManager and checks if paused - if paused, do not allow tower placement
+        if (GameManager.instance.paused) //reference to GameManager and checks if paused - if paused, do not allow tower placement
         {
             return;
         }
@@ -54,7 +54,7 @@ public class TowerPlacement : MonoBehaviour
                     Vector3 HalfExtents = TowerCollider.size / 2;
                     if (!Physics.CheckBox(BoxCenter, HalfExtents, Quaternion.identity, PlacementCheckMask, QueryTriggerInteraction.Ignore))
                     {
-                        Debug.Log("Tower Placed");
+                        //Debug.Log("Tower Placed");
                         TowerCollider.isTrigger = false;
                         selectedTower.GetComponent<TowerBehaviour>().canShoot = true;
                         selectedTower = null;
