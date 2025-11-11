@@ -1,14 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.Collections;
-using UnityEngine.Jobs;
-using Unity.Jobs;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class GameLoopManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static GameLoopManager instance;
+    public static GameManager instance;
     public static List<TowerBehaviour> TowersInGame;
 
     public bool paused;

@@ -24,7 +24,7 @@ public class TowerPlacement : MonoBehaviour
 
     void Update()
     {
-        if (GameLoopManager.instance.paused) //reference to GameLoopManager and checks if paused - if paused, do not allow tower placement
+        if (GameManager.instance.paused) //reference to GameLoopManager and checks if paused - if paused, do not allow tower placement
         {
             return;
         }

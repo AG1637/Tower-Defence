@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
-        GameLoopManager.instance.paused = true;
+        GameManager.instance.paused = true;
     }
 
     public void Home()
@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
-        GameLoopManager.instance.paused = false;
+        GameManager.instance.paused = false;
     }
 
     public void Restart()
