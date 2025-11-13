@@ -54,6 +54,7 @@ public class TowerPlacement : MonoBehaviour
                     if (!Physics.CheckBox(BoxCenter, HalfExtents, Quaternion.identity, PlacementCheckMask, QueryTriggerInteraction.Ignore))
                     {
                         //Debug.Log("Tower Placed");
+                        GameManager.instance.towersPlaced += 1;
                         TowerCollider.isTrigger = false;
                         selectedTower.GetComponent<TowerBehaviour>().canShoot = true;
                         selectedTower = null;

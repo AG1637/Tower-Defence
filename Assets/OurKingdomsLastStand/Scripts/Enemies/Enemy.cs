@@ -4,16 +4,17 @@ using Unity.Behavior;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Enemy Stats")]
+    [Header("Enemy Stats to change for each enemy type")]
     public float maxHealth = 100;
-    public float health;
-    public GameObject deathEffect;
     private float movementSpeed = 15;
+    public int damageToEnd = 25; //this the amount of damage that the castle will take if the enemy reaches the end point
+    public GameObject deathEffect;
+    
     private Vector3 direction = Vector3.right;
-
     private Vector3 start;
+    public float health;
     public float bulletDamage; //the amount of damage that the bullet that hit the enemy does to the enemy
-    public float damageToEnd; //this the amount of damage that the castle will take if the enemy reaches the end point
+    private bool hasDealtDamage = false; //check if the enemy has already dealt damage to the castle
     void Awake()
     {
         start = transform.position;
@@ -38,7 +39,9 @@ public class Enemy : MonoBehaviour
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
             }
             Destroy(gameObject);
-            Debug.Log("Enemy Died");
+            //When enemy dies update GameManager stats
+            GameManager.instance.enemiesDefeated += 1;
+            GameManager.instance.coinsRemaining += 10;
         }
     }
 
@@ -46,11 +49,16 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("End"))
         {
-            //reduce player health
-            Debug.Log("Enemy reached the End!");
-            Destroy(gameObject);
-        }
+            if (hasDealtDamage) return; // Prevent multiple damage instances
 
+            EndPoint end = other.GetComponent<EndPoint>();
+            if (end != null)
+            {
+                hasDealtDamage = true;
+                end.TakeDamage(damageToEnd);
+                Destroy(gameObject);
+            }
+        }
         if (other.CompareTag("Bullet"))
         {
             TakeDamage(other.GetComponent<Bullet>().damage); //gets reference to bullet script to get damage amount       
