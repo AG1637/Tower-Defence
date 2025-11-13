@@ -6,22 +6,43 @@ public class Enemy : MonoBehaviour
 {
     [Header("Enemy Stats to change for each enemy type")]
     public float maxHealth = 100;
-    private float movementSpeed = 15;
+    public float movementSpeed = 15;
     public int damageToEnd = 25; //this the amount of damage that the castle will take if the enemy reaches the end point
     public GameObject deathEffect;
-    
-    private Vector3 direction = Vector3.right;
-    private Vector3 start;
+
     public float health;
+    private Transform target;
+    private int wavepointIndex = 0;
     public float bulletDamage; //the amount of damage that the bullet that hit the enemy does to the enemy
     private bool hasDealtDamage = false; //check if the enemy has already dealt damage to the castle
-    void Awake()
+    
+    void Start()
     {
-        start = transform.position;
-        direction = direction.normalized;
+        target = Waypoints.points[0]; 
         health = maxHealth;
-        BehaviorGraphAgent behaviour = GetComponent<BehaviorGraphAgent>(); //gets reference to the speed in the behaviour graph
-        behaviour.BlackboardReference.SetVariableValue("Speed", movementSpeed);
+    }
+
+    private void Update()
+    {
+        Vector3 dir = target.position - transform.position;
+        transform.Translate(dir.normalized * movementSpeed * Time.deltaTime, Space.World);
+
+        if (Vector3.Distance(transform.position, target.position) <= 0.4f)
+        {
+            GetNextWaypoint();
+        }
+    }
+
+    void GetNextWaypoint()
+    {
+        /*if (wavepointIndex >= Waypoints.points.Length - 1)
+        {
+            Destroy(gameObject);
+            return;
+        }*/
+
+        wavepointIndex++;
+        target = Waypoints.points[wavepointIndex];
     }
 
     public void TakeDamage(float amount)

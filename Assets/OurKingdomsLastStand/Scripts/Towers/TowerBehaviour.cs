@@ -7,7 +7,7 @@ public class TowerBehaviour : MonoBehaviour
     [Header("Tower Targetting")]
     public LayerMask enemyLayers;
     public float rotationSpeed = 30;
-    public float range = 10f; //change size of collider dynamically
+    public float range = 10; //change size of collider dynamically
     public Transform towerPivot;
 
     [Header("Bullet Shooting")]
@@ -27,6 +27,8 @@ public class TowerBehaviour : MonoBehaviour
 
     void Start()
     {
+        SphereCollider sc = GetComponent<SphereCollider>();
+        //sc.radius = 10;
         if (bulletPool == null)
         {
             bulletPool = FindFirstObjectByType<ProjectilePool>();

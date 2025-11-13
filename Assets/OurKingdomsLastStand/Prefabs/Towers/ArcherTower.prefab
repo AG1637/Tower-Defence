@@ -74,9 +74,9 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 500
+  m_Radius: 50
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &484479002884169669
 MonoBehaviour:
@@ -98,7 +98,6 @@ MonoBehaviour:
   towerPivot: {fileID: 5729456426543173174}
   bulletSpawn: {fileID: 8320284945315990404}
   bulletPool: {fileID: 0}
-  bulletSpeed: 20
   fireRate: 1
   canShoot: 0
 --- !u!1 &2325916309013777608
