@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [Header("Stats")]
     public int wavesSurvived = -1; //starts at -1 so that when the first wave is spawned there are 0 waves survived
     public int enemiesDefeated = 0;
-    public int coinsRemaining = 100;
+    public int coinsRemaining = 300;
     public int towersPlaced = 0;
 
     void Start()
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        coinText.text = "Coins: " + coinsRemaining; 
+        coinText.text = "Coins: " + coinsRemaining + ""; 
     }
 
     public void GameLost()
