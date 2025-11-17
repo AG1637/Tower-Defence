@@ -6,8 +6,8 @@ public class Enemy : MonoBehaviour
 {
     [Header("Enemy Stats to change for each enemy type")]
     public float maxHealth = 100;
-    public float movementSpeed = 15;
-    public int damageToEnd = 25; //this the amount of damage that the castle will take if the enemy reaches the end point
+    public float movementSpeed = 20;
+    public int damageToEnd = 10; //this the amount of damage that the castle will take if the enemy reaches the end point
     public GameObject deathEffect;
 
     public float health;
@@ -35,12 +35,6 @@ public class Enemy : MonoBehaviour
 
     void GetNextWaypoint()
     {
-        /*if (wavepointIndex >= Waypoints.points.Length - 1)
-        {
-            Destroy(gameObject);
-            return;
-        }*/
-
         wavepointIndex++;
         target = Waypoints.points[wavepointIndex];
     }
@@ -62,7 +56,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             //When enemy dies update GameManager stats
             GameManager.instance.enemiesDefeated += 1;
-            GameManager.instance.coinsRemaining += 10;
+            GameManager.instance.coinsRemaining += 50;
         }
     }
 

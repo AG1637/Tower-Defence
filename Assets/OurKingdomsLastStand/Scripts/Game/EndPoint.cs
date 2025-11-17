@@ -13,14 +13,6 @@ public class EndPoint : MonoBehaviour
         healthBarImage.fillAmount = endCurrentHealth / endMaxHealth;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            TakeDamage(25);
-        }
-    }
-
     public void TakeDamage(int amount)
     {
         endCurrentHealth -= amount;

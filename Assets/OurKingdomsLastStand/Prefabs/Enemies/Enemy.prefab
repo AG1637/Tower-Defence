@@ -134,7 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  damageToEnd: 25
+  movementSpeed: 20
+  damageToEnd: 10
   deathEffect: {fileID: 0}
   health: 0
   bulletDamage: 0
