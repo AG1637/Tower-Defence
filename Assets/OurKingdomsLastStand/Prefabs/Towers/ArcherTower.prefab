@@ -94,7 +94,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rotationSpeed: 20
-  range: 50
+  range: 0
   towerPivot: {fileID: 5729456426543173174}
   bulletSpawn: {fileID: 8320284945315990404}
   bulletPool: {fileID: 0}

@@ -7,7 +7,7 @@ public class TowerBehaviour : MonoBehaviour
     [Header("Tower Targetting")]
     public LayerMask enemyLayers;
     public float rotationSpeed = 30;
-    public float range = 10; //change size of collider dynamically
+    private float range = 20; //change size of collider dynamically
     public Transform towerPivot;
 
     [Header("Bullet Shooting")]
@@ -27,8 +27,8 @@ public class TowerBehaviour : MonoBehaviour
 
     void Start()
     {
-        //SphereCollider sc = GetComponent<SphereCollider>();
-        //sc.radius = 10;
+        SphereCollider sc = GetComponent<SphereCollider>();
+        sc.radius = range;
         if (bulletPool == null)
         {
             bulletPool = FindFirstObjectByType<ProjectilePool>();
@@ -39,17 +39,21 @@ public class TowerBehaviour : MonoBehaviour
         var target = FindNearestEnemy();
         if (target != null && canShoot == true)
         {
-            Vector3 direction = (target.position - transform.position);
+            Vector3 direction = (target.transform.position - transform.position);
             direction.y = 0f; //keep only horizontal rotation
             if (towerPivot != null)
             {
+                
+                Debug.Log(direction);
+                Debug.Log(((Enemy)target).enemyDirection);
+                Vector3 aimPoint = direction + (target.enemyDirection * 100);
                 var desiredRot = Quaternion.LookRotation(direction);
                 towerPivot.rotation = Quaternion.Lerp(towerPivot.rotation, desiredRot, Time.deltaTime * rotationSpeed);
             }
 
             if (cooldown <= 0f)
             {
-                Shoot(target);
+                Shoot();
                 cooldown = 1f / Mathf.Max(0.0001f, fireRate);
             }
         }
@@ -57,24 +61,24 @@ public class TowerBehaviour : MonoBehaviour
         cooldown -= Time.deltaTime;
     }
 
-    Transform FindNearestEnemy()
+    Enemy FindNearestEnemy()
     {
         Collider[] collisions = Physics.OverlapSphere(transform.position, range, enemyLayers);
-        Transform best = null;
+        Enemy best = null;
         float bestDistance = float.MaxValue;
         foreach (var c in collisions)
         {
             float distance = Vector3.SqrMagnitude(c.transform.position - transform.position);
             if (distance < bestDistance)
             {
-                best = c.transform;
+                best = c.gameObject.GetComponent<Enemy>();
                 bestDistance = distance;
             }
         }
         return best;
     }
 
-    void Shoot(Transform target)
+    void Shoot()
     {
             if (bulletPool == null || bulletSpawn == null)
             {

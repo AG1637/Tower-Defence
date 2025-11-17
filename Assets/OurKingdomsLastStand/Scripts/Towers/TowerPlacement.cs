@@ -118,12 +118,13 @@ public class TowerPlacement : MonoBehaviour
         cannotAffordTowerText.SetActive(false);
     }
     
-    public void ArcherTowerCost()
+    public void ArcherTowerCost(GameObject tower)
     {
         if(GameManager.instance.coinsRemaining >= archerTowerCost)
         {
             canAffordTower = true;
             GameManager.instance.coinsRemaining -= archerTowerCost;
+            SetTowerToPlace(tower);
         }
         else
         {
@@ -133,12 +134,13 @@ public class TowerPlacement : MonoBehaviour
             selectedTower = null;
         }
     }
-    public void MagicTowerCost()
+    public void MagicTowerCost(GameObject tower)
     {
         if (GameManager.instance.coinsRemaining >= magicTowerCost)
         {
             canAffordTower = true;
             GameManager.instance.coinsRemaining -= magicTowerCost;
+            SetTowerToPlace(tower);
         }
         else
         {
@@ -149,12 +151,13 @@ public class TowerPlacement : MonoBehaviour
         }
     }
 
-    public void CannonTowerCost()
+    public void CannonTowerCost(GameObject tower)
     {
         if (GameManager.instance.coinsRemaining >= cannonTowerCost)
         {
             canAffordTower = true;
             GameManager.instance.coinsRemaining -= cannonTowerCost;
+            SetTowerToPlace(tower);
         }
         else
         {

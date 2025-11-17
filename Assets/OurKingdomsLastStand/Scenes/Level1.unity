@@ -2490,18 +2490,6 @@ MonoBehaviour:
       - m_Target: {fileID: 561136298}
         m_TargetAssemblyTypeName: TowerPlacement, Assembly-CSharp
         m_MethodName: ArcherTowerCost
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 561136298}
-        m_TargetAssemblyTypeName: TowerPlacement, Assembly-CSharp
-        m_MethodName: SetTowerToPlace
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 789469868646709916, guid: 8c67356879ddf96458019f2f229e26a5, type: 3}
@@ -4030,18 +4018,6 @@ MonoBehaviour:
       - m_Target: {fileID: 561136298}
         m_TargetAssemblyTypeName: TowerPlacement, Assembly-CSharp
         m_MethodName: MagicTowerCost
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 561136298}
-        m_TargetAssemblyTypeName: TowerPlacement, Assembly-CSharp
-        m_MethodName: SetTowerToPlace
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 7198040222754531893, guid: ab31a752fa1e66446abd8ca914bb7996, type: 3}
@@ -4934,7 +4910,7 @@ MonoBehaviour:
   GameOverScreen: {fileID: 2098698936}
   wavesSurvived: 0
   enemiesDefeated: 0
-  coinsRemaining: 300
+  coinsRemaining: 1000
   towersPlaced: 0
 --- !u!114 &691583657
 MonoBehaviour:
@@ -8652,7 +8628,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41c09cb4f313e984c803628ceae0f914, type: 2}
   m_sharedMaterial: {fileID: -6320831149520174279, guid: 41c09cb4f313e984c803628ceae0f914, type: 2}
@@ -12838,18 +12814,6 @@ MonoBehaviour:
       - m_Target: {fileID: 561136298}
         m_TargetAssemblyTypeName: TowerPlacement, Assembly-CSharp
         m_MethodName: CannonTowerCost
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 561136298}
-        m_TargetAssemblyTypeName: TowerPlacement, Assembly-CSharp
-        m_MethodName: SetTowerToPlace
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 3068711295053762450, guid: 5bf527b7164a7074d9f68024e7ac979e, type: 3}
