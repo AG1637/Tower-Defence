@@ -27,7 +27,7 @@ public class TowerBehaviour : MonoBehaviour
 
     void Start()
     {
-        SphereCollider sc = GetComponent<SphereCollider>();
+        //SphereCollider sc = GetComponent<SphereCollider>();
         //sc.radius = 10;
         if (bulletPool == null)
         {

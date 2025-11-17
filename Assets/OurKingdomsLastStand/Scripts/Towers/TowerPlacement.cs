@@ -11,14 +11,27 @@ public class TowerPlacement : MonoBehaviour
     [SerializeField] private Camera PlayerCamera;
 
     private GameObject selectedTower;
-    public float textTimer = 2;
-    public GameObject CannotPlaceTowerText;
+    public GameObject cannotPlaceTowerText;
+    public GameObject cannotAffordTowerText;
+    public TextMeshProUGUI archerCostText;
+    public TextMeshProUGUI magicCostText;
+    public TextMeshProUGUI cannonCostText;
     private bool showText = false;
+    private bool canAffordTower;
+    public float textTimer = 2;
 
+    [Header("Tower Costs")]
+    public int archerTowerCost = 100;
+    public int magicTowerCost = 150;
+    public int cannonTowerCost = 200;
 
     private void Start()
     {
-        CannotPlaceTowerText.SetActive(false);
+        cannotPlaceTowerText.SetActive(false);
+        cannotAffordTowerText.SetActive(false);
+        archerCostText.text = archerTowerCost.ToString();
+        magicCostText.text = magicTowerCost.ToString(); 
+        cannonCostText.text = cannonTowerCost.ToString();
     }
 
     void Update()
@@ -27,8 +40,14 @@ public class TowerPlacement : MonoBehaviour
         {
             return;
         }
-        if(selectedTower != null)
+        if (canAffordTower == false)
         {
+            return;
+        }
+        if (canAffordTower == true)
+        {
+            if(selectedTower != null)
+            {
             Ray camray = PlayerCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit HitInfo;
             if (Physics.Raycast(camray, out HitInfo, 300f, PlacementCollideMask))
@@ -66,7 +85,7 @@ public class TowerPlacement : MonoBehaviour
                         showText = true;
                         if (showText == true)
                         {
-                            CannotPlaceTowerText.SetActive(true);
+                            cannotPlaceTowerText.SetActive(true);
                             Invoke("HideTowerText", 2f);
                         }
                     }                
@@ -77,12 +96,14 @@ public class TowerPlacement : MonoBehaviour
                     showText = true;
                     if (showText == true)
                     {
-                        CannotPlaceTowerText.SetActive(true);
-                        Invoke("HideTowerText", 2f);
+                        cannotPlaceTowerText.SetActive(true);
+                        Invoke("HideText", 2f);
                     }
                 }
             }
+            }
         }
+        
     }
 
     public void SetTowerToPlace(GameObject tower)
@@ -90,9 +111,57 @@ public class TowerPlacement : MonoBehaviour
         selectedTower = Instantiate(tower, Vector3.zero, Quaternion.identity);
     }
 
-    public void HideTowerText()
+    public void HideText()
     {
         showText = false;
-        CannotPlaceTowerText.SetActive(false);
-    }       
+        cannotPlaceTowerText.SetActive(false);
+        cannotAffordTowerText.SetActive(false);
+    }
+    
+    public void ArcherTowerCost()
+    {
+        if(GameManager.instance.coinsRemaining >= archerTowerCost)
+        {
+            canAffordTower = true;
+            GameManager.instance.coinsRemaining -= archerTowerCost;
+        }
+        else
+        {
+            cannotAffordTowerText.SetActive(true);
+            Invoke("HideText", 2f);
+            canAffordTower = false;
+            selectedTower = null;
+        }
+    }
+    public void MagicTowerCost()
+    {
+        if (GameManager.instance.coinsRemaining >= magicTowerCost)
+        {
+            canAffordTower = true;
+            GameManager.instance.coinsRemaining -= magicTowerCost;
+        }
+        else
+        {
+            cannotAffordTowerText.SetActive(true);
+            Invoke("HideText", 2f);
+            canAffordTower = false;
+            selectedTower = null;
+        }
+    }
+
+    public void CannonTowerCost()
+    {
+        if (GameManager.instance.coinsRemaining >= cannonTowerCost)
+        {
+            canAffordTower = true;
+            GameManager.instance.coinsRemaining -= cannonTowerCost;
+        }
+        else
+        {
+            cannotAffordTowerText.SetActive(true);
+            Invoke("HideText", 2f);
+            canAffordTower = false; 
+            selectedTower = null;
+        }
+    }
 }
