@@ -3991,8 +3991,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 691583658}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+      - m_Target: {fileID: 691583656}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: LoadLevel2
         m_Mode: 1
         m_Arguments:
@@ -5084,7 +5084,6 @@ GameObject:
   - component: {fileID: 691583655}
   - component: {fileID: 691583656}
   - component: {fileID: 691583657}
-  - component: {fileID: 691583658}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5120,6 +5119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
+  gameOver: 0
   coinText: {fileID: 138984973}
   loseStatText: {fileID: 607494761}
   winStatText: {fileID: 998240414}
@@ -5147,18 +5147,6 @@ MonoBehaviour:
   textTimer: 2
   nextwaveText: {fileID: 1359451227}
   timerText: {fileID: 1797449565}
---- !u!114 &691583658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 691583654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e0dd56b0dfbe7489d62c22ffae7e6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &705272093 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4762903517677463778, guid: 99bbd485bc9ea46428c2b4f7ba6cdd9f, type: 3}

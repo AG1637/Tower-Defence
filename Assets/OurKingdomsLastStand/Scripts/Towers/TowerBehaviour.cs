@@ -43,9 +43,6 @@ public class TowerBehaviour : MonoBehaviour
             direction.y = 0f; //keep only horizontal rotation
             if (towerPivot != null)
             {
-                
-                Debug.Log(direction);
-                Debug.Log(((Enemy)target).enemyDirection);
                 Vector3 aimPoint = direction + (target.enemyDirection * 100);
                 var desiredRot = Quaternion.LookRotation(direction);
                 towerPivot.rotation = Quaternion.Lerp(towerPivot.rotation, desiredRot, Time.deltaTime * rotationSpeed);

@@ -1,12 +1,10 @@
-using Unity.AppUI.UI;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    public int currentLevel;
-
     [Header ("Level Buttons")]
     public GameObject Level1Button;
     public GameObject Level2Button;
@@ -20,21 +18,24 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        //Level1Button.GetComponent<Button>() = false;
-    }
-    public void Update()
-    {
-        
+        Level2Button.GetComponent<Button>().interactable = FindFirstObjectByType<LevelTracker>().currentLevel >= 1;
+        Level3Button.GetComponent<Button>().interactable = false;
+        Level4Button.GetComponent<Button>().interactable = false;
+        Level5Button.GetComponent<Button>().interactable = false;
+        Level6Button.GetComponent<Button>().interactable = false;
+        Level7Button.GetComponent<Button>().interactable = false;
+        Level8Button.GetComponent<Button>().interactable = false; 
+        Level9Button.GetComponent<Button>().interactable = false;
     }
 
     public void LoadLevel1()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadScene(1);
     }
 
     public void LoadLevel2()
     {
-        SceneManager.LoadSceneAsync(2);
+        SceneManager.LoadScene(2);
     }
 
 }
