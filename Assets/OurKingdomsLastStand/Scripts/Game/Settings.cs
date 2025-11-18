@@ -5,19 +5,10 @@ using TMPro;
 
 public class Settings : MonoBehaviour
 {
-    [SerializeField] GameObject settingsPanel;
     public TMP_Dropdown graphicsDropdown;
     public Slider masterVol, musicVol, SFXVol;
     public AudioMixer AudioMixer;
 
-    public void OpenSettingsPanel()
-    {
-        settingsPanel.SetActive(true);
-    }
-    public void CloseSettingsPanel()
-    {
-        settingsPanel.SetActive(false);
-    }
     public void ChangeGraphicsQuality()
     {
         QualitySettings.SetQualityLevel(graphicsDropdown.value);
