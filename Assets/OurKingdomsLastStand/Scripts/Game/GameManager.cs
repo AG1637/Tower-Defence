@@ -9,11 +9,13 @@ public class GameManager : MonoBehaviour
     public static List<TowerBehaviour> TowersInGame;
     public bool paused;
     public bool gameOver = false;
+    public bool fastForward = false;
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI loseStatText;
     public TextMeshProUGUI winStatText;
     [SerializeField] GameObject GameOverScreen;
     [SerializeField] GameObject GameWinScreen;
+    [SerializeField] GameObject Tutorial;
 
     [Header("Stats")]
     public int wavesSurvived = -1; //starts at -1 so that when the first wave is spawned there are 0 waves survived
@@ -23,10 +25,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 1;
-        paused = false;
+        Time.timeScale = 0;
+        paused = true;
         instance = this; //used to reference GameLoopManager from other scripts
         TowersInGame = new List<TowerBehaviour>();
+        Tutorial.SetActive(true);
     }
 
     private void Update()
@@ -59,4 +62,28 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+
+    public void TutorialComplete()
+    {
+        Time.timeScale = 1;
+        paused = false;
+        fastForward = false;
+        Tutorial.SetActive(false);
+    }
+
+    public void SpeedUp()
+    {
+        fastForward = fastForward == true ? false : true;
+        if (fastForward == true)
+        {
+            Time.timeScale = 2;
+            //Debug.Log("Fast Forwarding");
+        }
+        if (fastForward == false)
+        {
+            Time.timeScale = 1;
+            //Debug.Log("Normal Speed");
+        }
+    }
+
 }
