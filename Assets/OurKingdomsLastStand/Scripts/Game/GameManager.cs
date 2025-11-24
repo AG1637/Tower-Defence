@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         coinText.text = "Coins: " + coinsRemaining + ""; 
-        if (wavesSurvived == 15 && !gameOver)
+        if (wavesSurvived == 16 && !gameOver)
         {
             GameWon();
             gameOver = true;
