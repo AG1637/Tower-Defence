@@ -3,6 +3,7 @@ using TMPro;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using Unity.VisualScripting;
+using System.Collections;
 
 public class TowerPlacement : MonoBehaviour
 {
@@ -86,7 +87,7 @@ public class TowerPlacement : MonoBehaviour
                         if (showText == true)
                         {
                             cannotPlaceTowerText.SetActive(true);
-                            Invoke("HideTowerText", 2f);
+                            StartCoroutine(HideText());
                         }
                     }                
                 }
@@ -97,7 +98,7 @@ public class TowerPlacement : MonoBehaviour
                     if (showText == true)
                     {
                         cannotPlaceTowerText.SetActive(true);
-                        Invoke("HideText", 2f);
+                        StartCoroutine(HideText());
                     }
                 }
             }
@@ -111,8 +112,9 @@ public class TowerPlacement : MonoBehaviour
         selectedTower = Instantiate(tower, Vector3.zero, Quaternion.identity);
     }
 
-    public void HideText()
+    IEnumerator HideText()
     {
+        yield return new WaitForSeconds(2);
         showText = false;
         cannotPlaceTowerText.SetActive(false);
         cannotAffordTowerText.SetActive(false);
@@ -129,7 +131,7 @@ public class TowerPlacement : MonoBehaviour
         else
         {
             cannotAffordTowerText.SetActive(true);
-            Invoke("HideText", 2f);
+            StartCoroutine(HideText());
             canAffordTower = false;
             selectedTower = null;
         }
@@ -145,7 +147,7 @@ public class TowerPlacement : MonoBehaviour
         else
         {
             cannotAffordTowerText.SetActive(true);
-            Invoke("HideText", 2f);
+            StartCoroutine(HideText());
             canAffordTower = false;
             selectedTower = null;
         }
@@ -162,7 +164,7 @@ public class TowerPlacement : MonoBehaviour
         else
         {
             cannotAffordTowerText.SetActive(true);
-            Invoke("HideText", 2f);
+            StartCoroutine(HideText());
             canAffordTower = false; 
             selectedTower = null;
         }

@@ -5,7 +5,7 @@ using Unity.Behavior;
 public class Enemy : MonoBehaviour
 {
     [Header("Enemy Stats to change for each enemy type")]
-    public float maxHealth = 100;
+    public float maxHealth = 200;
     public float movementSpeed = 20;
     public int damageToEnd = 10; //this the amount of damage that the castle will take if the enemy reaches the end point
     public GameObject deathEffect;
