@@ -19,7 +19,10 @@ public class TowerPlacement : MonoBehaviour
     public TextMeshProUGUI cannonCostText;
     private bool showText = false;
     private bool canAffordTower;
-    public float textTimer = 2;
+
+    private bool archer;
+    private bool magic;
+    private bool cannon;
 
     [Header("Tower Costs")]
     public int archerTowerCost = 100;
@@ -60,6 +63,21 @@ public class TowerPlacement : MonoBehaviour
             {
                 Destroy(selectedTower);
                 selectedTower = null;
+                if (archer == true)
+                {
+                    GameManager.instance.coinsRemaining += archerTowerCost;
+                    archer = false;
+                }
+                else if (magic == true)
+                {
+                    GameManager.instance.coinsRemaining += magicTowerCost;
+                    magic = false;
+                }
+                else if (cannon == true)
+                {
+                    GameManager.instance.coinsRemaining += cannonTowerCost;
+                    cannon = false;
+                }
                 return;
             }
 
@@ -78,6 +96,9 @@ public class TowerPlacement : MonoBehaviour
                         TowerCollider.isTrigger = false;
                         selectedTower.GetComponent<TowerBehaviour>().canShoot = true;
                         selectedTower = null;
+                        archer = false;
+                        magic = false;
+                        cannon = false;
                     }
                     else
                     {
@@ -127,6 +148,7 @@ public class TowerPlacement : MonoBehaviour
             canAffordTower = true;
             GameManager.instance.coinsRemaining -= archerTowerCost;
             SetTowerToPlace(tower);
+            archer = true;
         }
         else
         {
@@ -143,6 +165,7 @@ public class TowerPlacement : MonoBehaviour
             canAffordTower = true;
             GameManager.instance.coinsRemaining -= magicTowerCost;
             SetTowerToPlace(tower);
+            magic = true;
         }
         else
         {
@@ -160,6 +183,7 @@ public class TowerPlacement : MonoBehaviour
             canAffordTower = true;
             GameManager.instance.coinsRemaining -= cannonTowerCost;
             SetTowerToPlace(tower);
+            cannon = true;
         }
         else
         {
