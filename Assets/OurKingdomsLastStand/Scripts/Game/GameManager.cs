@@ -35,11 +35,6 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         coinText.text = "Coins: " + coinsRemaining + ""; 
-        if (wavesSurvived == 16 && !gameOver)
-        {
-            GameWon();
-            gameOver = true;
-        }
     }
 
     public void GameLost()
@@ -51,6 +46,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameWon()
     {
+        gameOver = true;
         winStatText.text = "Waves Survived: " + (wavesSurvived - 1) + "\r\nEnemies Defeated: " + enemiesDefeated + "\r\nCoins Remaining: " + coinsRemaining + "\r\nTowers Placed: " + towersPlaced;
         GameWinScreen.SetActive(true);
         Time.timeScale = 0;

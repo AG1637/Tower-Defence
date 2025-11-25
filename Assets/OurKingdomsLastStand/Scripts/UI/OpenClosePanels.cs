@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -35,5 +36,6 @@ public class OpenClosePanels : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+        EditorApplication.ExitPlaymode();
     }
 }

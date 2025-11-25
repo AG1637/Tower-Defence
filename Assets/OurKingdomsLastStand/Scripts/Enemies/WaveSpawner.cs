@@ -2,13 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
+using Unity.AppUI.Redux;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Transform enemyPrefab;
+    public Wave[] waves;
     public Transform spawnPoint;
     private int waveIndex = 0;
-    public float timeBetweenWaves = 10; //time between waves in seconds
+    public float timeBetweenWaves = 25; //time between waves in seconds
     public float textTimer = 2; //how long "next wave" text shows
     private float countdown = 11;
     public GameObject nextwaveText;
@@ -55,19 +56,26 @@ public class WaveSpawner : MonoBehaviour
 
         IEnumerator SpawnWave()
         {
-            waveIndex++;
-
-            for (int i = 0; i < waveIndex; i++)
+            Wave wave = waves[waveIndex];
+            for (int z = 0; z < wave.enemies.Length; z++)
             {
-                SpawnEnemy();
-                yield return new WaitForSeconds(0.5f);
+                for (int i = 0; i < wave.enemies[z].count; i++)
+                {
+                    SpawnEnemy(wave.enemies[z].enemy);
+                    yield return new WaitForSeconds(wave.spawnRate);
+                }
+                if (waveIndex == waves.Length)
+                {
+                    GameManager.instance.GameWon();
+                    this.enabled = false;
+                }
             }
+            waveIndex++;
         }
 
-        void SpawnEnemy()
+        void SpawnEnemy(GameObject enemy)
         {
-            Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(enemy, spawnPoint.position, Quaternion.identity);
         }
-
     }
 }
