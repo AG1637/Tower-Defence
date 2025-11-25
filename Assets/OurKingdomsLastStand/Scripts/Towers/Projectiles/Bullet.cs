@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public static Bullet instance;
+
     [Header("Bullet Stats")]
     private float speed = 100f;
     public float lifeTime = 5f; 
@@ -14,6 +16,7 @@ public class Bullet : MonoBehaviour
     void OnEnable()
     {
         spawnTime = Time.time;
+        instance = this;
     }
 
     void Update()

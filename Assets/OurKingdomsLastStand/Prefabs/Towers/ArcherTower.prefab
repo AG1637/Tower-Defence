@@ -94,11 +94,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rotationSpeed: 20
-  range: 0
   towerPivot: {fileID: 5729456426543173174}
   bulletSpawn: {fileID: 8320284945315990404}
   bulletPool: {fileID: 0}
   fireRate: 1
+  bulletDamage: 0
+  towerName: Archer Tower
+  level: 1
+  upgradeCost: 100
+  sellValue: 50
+  archertower: 0
+  magictower: 0
+  cannontower: 0
   canShoot: 0
 --- !u!1 &2325916309013777608
 GameObject:

@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 484479002884169669, guid: 8c67356879ddf96458019f2f229e26a5, type: 3}
+      propertyPath: sellValue
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 484479002884169669, guid: 8c67356879ddf96458019f2f229e26a5, type: 3}
+      propertyPath: towerName
+      value: Magic Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 484479002884169669, guid: 8c67356879ddf96458019f2f229e26a5, type: 3}
+      propertyPath: upgradeCost
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 789469868646709916, guid: 8c67356879ddf96458019f2f229e26a5, type: 3}
       propertyPath: m_Name
       value: MagicTower

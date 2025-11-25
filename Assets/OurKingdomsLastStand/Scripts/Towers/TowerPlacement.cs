@@ -7,6 +7,8 @@ using System.Collections;
 
 public class TowerPlacement : MonoBehaviour
 {
+    public static TowerPlacement instance;
+
     [SerializeField] private LayerMask PlacementCheckMask;
     [SerializeField] private LayerMask PlacementCollideMask;
     [SerializeField] private Camera PlayerCamera;
@@ -20,9 +22,9 @@ public class TowerPlacement : MonoBehaviour
     private bool showText = false;
     private bool canAffordTower;
 
-    private bool archer = false;
-    private bool magic = false;
-    private bool cannon = false;
+    public bool archer = false;
+    public bool magic = false;
+    public bool cannon = false;
 
     [Header("Tower Costs")]
     public int archerTowerCost = 100;
@@ -31,6 +33,7 @@ public class TowerPlacement : MonoBehaviour
 
     private void Start()
     {
+        instance = this;
         cannotPlaceTowerText.SetActive(false);
         cannotAffordTowerText.SetActive(false);
         archerCostText.text = archerTowerCost.ToString();
@@ -84,17 +87,17 @@ public class TowerPlacement : MonoBehaviour
                         if (archer == true)
                         {
                             GameManager.instance.coinsRemaining -= archerTowerCost;
-                            archer = false;
+                            //archer = false;
                         }
                         else if (magic == true)
                         {
                             GameManager.instance.coinsRemaining -= magicTowerCost;
-                            magic = false;
+                            //magic = false;
                         }
                         else if (cannon == true)
                         {
                             GameManager.instance.coinsRemaining -= cannonTowerCost;
-                            cannon = false;
+                            //cannon = false;
                         }
                     }
                     else

@@ -1,6 +1,9 @@
 using System.Drawing;
 using Unity.VisualScripting;
+using UnityEditor.Searcher;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class TowerBehaviour : MonoBehaviour
 {
@@ -14,26 +17,71 @@ public class TowerBehaviour : MonoBehaviour
     public Transform bulletSpawn;
     public ProjectilePool bulletPool;
     public float fireRate = 1f;
+    public float bulletDamage;
+
+    [Header("TowerUI")]
+    public string towerName = "Tower";
+    public int level = 1;
+    public int upgradeCost;
+    public int sellValue;
+    public bool archertower;
+    public bool magictower; 
+    public bool cannontower;
 
     private float cooldown;
     public bool canShoot = false;
+    public float GetRange() => range;
 
     public void Initialize(ProjectilePool pool, Transform bulletSpawnTransform, Transform towerPivotTransform = null)
     {
         bulletPool = pool;
         if (bulletSpawnTransform != null) bulletSpawn = bulletSpawnTransform;
         if (towerPivotTransform != null) towerPivot = towerPivotTransform;
+        bulletDamage = Bullet.instance.damage;
     }
 
     void Start()
     {
+        archertower = TowerPlacement.instance.archer;
+        magictower = TowerPlacement.instance.magic;
+        cannontower = TowerPlacement.instance.cannon;
         SphereCollider sc = GetComponent<SphereCollider>();
         sc.radius = range;
         if (bulletPool == null)
         {
             bulletPool = FindFirstObjectByType<ProjectilePool>();
         }
+        if(GameManager.TowersInGame == null)
+        {
+            GameManager.TowersInGame.Add(this);
+        }
+        if (archertower == true)
+        {
+            archertower = false;
+            TowerPlacement.instance.archer = false;
+            sellValue = Mathf.RoundToInt(TowerPlacement.instance.archerTowerCost / 4f);
+        }
+        else if (magictower == true)
+        {
+            magictower = false;
+            TowerPlacement.instance.magic = false;
+            sellValue = Mathf.RoundToInt(TowerPlacement.instance.magicTowerCost / 4f);
+        }
+        else if (cannontower == true)
+        {
+            cannontower = false;
+            TowerPlacement.instance.cannon = false;
+            sellValue = Mathf.RoundToInt(TowerPlacement.instance.cannonTowerCost / 4f);
+        }
     }
+    void OnDestroy()
+    {
+        if (GameManager.TowersInGame != null)
+        {
+            GameManager.TowersInGame.Remove(this);
+        }
+    }
+
     void Update()
     {
         var target = FindNearestEnemy();
@@ -85,4 +133,46 @@ public class TowerBehaviour : MonoBehaviour
             var proj = projGO.GetComponent<Bullet>();
             //play flash/sound here
     }
+
+    void OnMouseDown()
+    {
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) //ignore if user is clicking on UI
+        {
+            return;
+        }
+        // Show the tower UI
+        if (TowerUIManager.instance != null)
+        {
+            TowerUIManager.instance.ShowForTower(this);
+        }
+    }
+
+     public void Upgrade()
+    {
+        level++;
+        // Example stat increases:
+        fireRate *= 1.1f;
+        range *= 1.05f;
+        bulletDamage *= 1.2f;
+        Bullet.instance.damage = bulletDamage;
+        // increase next upgrade cost and sell value
+        upgradeCost = Mathf.RoundToInt(upgradeCost * 1.6f);
+        sellValue = Mathf.RoundToInt(sellValue * 1.4f);
+        // update collider radius if present
+        var sc = GetComponent<SphereCollider>();
+        if (sc != null)
+        {
+            sc.radius = range;
+        }
+    }
+
+    public void Sell()
+    {
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.coinsRemaining += sellValue;
+        }
+        Destroy(gameObject);
+    }
+
 }

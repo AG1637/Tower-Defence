@@ -56,6 +56,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e3d648227f5e69a4c94ea047f47241fe, type: 2}
+    - target: {fileID: 8046075242642509676, guid: ab31a752fa1e66446abd8ca914bb7996, type: 3}
+      propertyPath: sellValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046075242642509676, guid: ab31a752fa1e66446abd8ca914bb7996, type: 3}
+      propertyPath: towerName
+      value: Cannon Tower
+      objectReference: {fileID: 0}
     - target: {fileID: 8430679836205376920, guid: ab31a752fa1e66446abd8ca914bb7996, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
