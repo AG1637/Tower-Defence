@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     {
         target = Waypoints.points[0]; 
         health = maxHealth;
+        transform.LookAt(target);
     }
 
     private void Update()
@@ -38,6 +39,7 @@ public class Enemy : MonoBehaviour
     {
         wavepointIndex++;
         target = Waypoints.points[wavepointIndex];
+        transform.LookAt(target);
     }
 
     public void TakeDamage(float amount)
