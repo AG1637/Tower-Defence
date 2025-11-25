@@ -20,9 +20,9 @@ public class TowerPlacement : MonoBehaviour
     private bool showText = false;
     private bool canAffordTower;
 
-    private bool archer;
-    private bool magic;
-    private bool cannon;
+    private bool archer = false;
+    private bool magic = false;
+    private bool cannon = false;
 
     [Header("Tower Costs")]
     public int archerTowerCost = 100;
@@ -63,21 +63,6 @@ public class TowerPlacement : MonoBehaviour
             {
                 Destroy(selectedTower);
                 selectedTower = null;
-                if (archer == true)
-                {
-                    GameManager.instance.coinsRemaining += archerTowerCost;
-                    archer = false;
-                }
-                else if (magic == true)
-                {
-                    GameManager.instance.coinsRemaining += magicTowerCost;
-                    magic = false;
-                }
-                else if (cannon == true)
-                {
-                    GameManager.instance.coinsRemaining += cannonTowerCost;
-                    cannon = false;
-                }
                 return;
             }
 
@@ -96,9 +81,21 @@ public class TowerPlacement : MonoBehaviour
                         TowerCollider.isTrigger = false;
                         selectedTower.GetComponent<TowerBehaviour>().canShoot = true;
                         selectedTower = null;
-                        archer = false;
-                        magic = false;
-                        cannon = false;
+                        if (archer == true)
+                        {
+                            GameManager.instance.coinsRemaining -= archerTowerCost;
+                            archer = false;
+                        }
+                        else if (magic == true)
+                        {
+                            GameManager.instance.coinsRemaining -= magicTowerCost;
+                            magic = false;
+                        }
+                        else if (cannon == true)
+                        {
+                            GameManager.instance.coinsRemaining -= cannonTowerCost;
+                            cannon = false;
+                        }
                     }
                     else
                     {
@@ -146,7 +143,6 @@ public class TowerPlacement : MonoBehaviour
         if(GameManager.instance.coinsRemaining >= archerTowerCost)
         {
             canAffordTower = true;
-            GameManager.instance.coinsRemaining -= archerTowerCost;
             SetTowerToPlace(tower);
             archer = true;
         }
@@ -162,8 +158,7 @@ public class TowerPlacement : MonoBehaviour
     {
         if (GameManager.instance.coinsRemaining >= magicTowerCost)
         {
-            canAffordTower = true;
-            GameManager.instance.coinsRemaining -= magicTowerCost;
+            canAffordTower = true;            
             SetTowerToPlace(tower);
             magic = true;
         }
@@ -181,7 +176,6 @@ public class TowerPlacement : MonoBehaviour
         if (GameManager.instance.coinsRemaining >= cannonTowerCost)
         {
             canAffordTower = true;
-            GameManager.instance.coinsRemaining -= cannonTowerCost;
             SetTowerToPlace(tower);
             cannon = true;
         }
