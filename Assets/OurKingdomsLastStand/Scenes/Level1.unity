@@ -5796,10 +5796,11 @@ MonoBehaviour:
     - enemy: {fileID: 4909996206955255990, guid: 8fa377eba69405846b5c5f0ff4feab19, type: 3}
       count: 1
   spawnPoint: {fileID: 1162661305}
-  timeBetweenWaves: 20
+  timeBetweenWaves: 2
   textTimer: 2
   nextwaveText: {fileID: 1359451227}
   timerText: {fileID: 1797449565}
+  wavesFinishedSpawning: 0
 --- !u!4 &705272093 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4762903517677463778, guid: 99bbd485bc9ea46428c2b4f7ba6cdd9f, type: 3}
