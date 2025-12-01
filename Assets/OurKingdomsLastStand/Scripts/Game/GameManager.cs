@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     public bool paused;
     public bool gameOver = false;
     public bool fastForward = false;
+    public int wavesRemaining = 10;
     public TextMeshProUGUI coinText;
+    public TextMeshProUGUI wavesText;
     public TextMeshProUGUI loseStatText;
     public TextMeshProUGUI winStatText;
     public TextMeshProUGUI speedUpButtonText;
@@ -35,7 +37,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        coinText.text = "Coins: " + coinsRemaining + ""; 
+        coinText.text = "Coins: " + coinsRemaining + "";
+        wavesText.text = "Waves Remaining: " + wavesRemaining;
     }
 
     public void GameLost()

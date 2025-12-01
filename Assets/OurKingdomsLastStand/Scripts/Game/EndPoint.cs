@@ -16,7 +16,7 @@ public class EndPoint : MonoBehaviour
     public void TakeDamage(int amount)
     {
         endCurrentHealth -= amount;
-        Debug.Log($"Base took {amount} damage. Remaining health: {endCurrentHealth}");
+        //Debug.Log($"Base took {amount} damage. Remaining health: {endCurrentHealth}");
         healthBarImage.fillAmount = (float)endCurrentHealth / (float)endMaxHealth;
 
         if (endCurrentHealth <= 0)

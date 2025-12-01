@@ -25,9 +25,9 @@ public class TowerPlacement : MonoBehaviour
     private bool cannon = false;
 
     [Header("Tower Costs")]
-    public int archerTowerCost = 100;
-    public int magicTowerCost = 150;
-    public int cannonTowerCost = 200;
+    public int archerTowerCost = 150;
+    public int magicTowerCost = 20;
+    public int cannonTowerCost = 300;
 
     private void Start()
     {
@@ -57,6 +57,60 @@ public class TowerPlacement : MonoBehaviour
             if (Physics.Raycast(camray, out HitInfo, 300f, PlacementCollideMask))
             {
                 selectedTower.transform.position = HitInfo.point;//moves tower to mouse position
+                if (Input.GetMouseButtonDown(0) && HitInfo.collider.gameObject != null)
+                {
+                    if (HitInfo.collider.gameObject.CompareTag("CanPlaceTowers"))//checks if tower is being placed on valid ground
+                    {
+                        BoxCollider TowerCollider = selectedTower.gameObject.GetComponent<BoxCollider>();
+                        TowerCollider.isTrigger = true;
+                        Vector3 BoxCenter = selectedTower.gameObject.transform.position + TowerCollider.center;
+                        Vector3 HalfExtents = TowerCollider.size / 2;
+                        if (!Physics.CheckBox(BoxCenter, HalfExtents, Quaternion.identity, PlacementCheckMask, QueryTriggerInteraction.Ignore))
+                        {
+                            //Debug.Log("Tower Placed");
+                            GameManager.instance.towersPlaced += 1;
+                            TowerCollider.isTrigger = false;
+                            selectedTower.GetComponent<TowerBehaviour>().canShoot = true;
+                            selectedTower = null;
+                            if (archer == true)
+                            {
+                                GameManager.instance.coinsRemaining -= archerTowerCost;
+                                archer = false;
+                            }
+                            else if (magic == true)
+                            {
+                                GameManager.instance.coinsRemaining -= magicTowerCost;
+                                magic = false;
+                            }
+                            else if (cannon == true)
+                            {
+                                GameManager.instance.coinsRemaining -= cannonTowerCost;
+                                cannon = false;
+                            }
+                        }
+                        else
+                        {
+                            //Add text on screen that tells player that they cannot place a tower in that position
+                            Debug.Log("Cannot Place Tower Here");
+                            showText = true;
+                            if (showText == true)
+                            {
+                                cannotPlaceTowerText.SetActive(true);
+                                StartCoroutine(HideText());
+                            }
+                        }                
+                    }
+                    else 
+                    {
+                        Debug.Log("Cannot Place Tower Here");
+                        showText = true;
+                        if (showText == true)
+                        {
+                            cannotPlaceTowerText.SetActive(true);
+                            StartCoroutine(HideText());
+                        }
+                    }
+                }
             }
 
             if(Input.GetKeyDown(KeyCode.Q))//allows player to cancel tower placement by pressing Q
@@ -66,60 +120,6 @@ public class TowerPlacement : MonoBehaviour
                 return;
             }
 
-            if (Input.GetMouseButtonDown(0) && HitInfo.collider.gameObject != null)
-            {
-                if (HitInfo.collider.gameObject.CompareTag("CanPlaceTowers"))//checks if tower is being placed on valid ground
-                {
-                    BoxCollider TowerCollider = selectedTower.gameObject.GetComponent<BoxCollider>();
-                    TowerCollider.isTrigger = true;
-                    Vector3 BoxCenter = selectedTower.gameObject.transform.position + TowerCollider.center;
-                    Vector3 HalfExtents = TowerCollider.size / 2;
-                    if (!Physics.CheckBox(BoxCenter, HalfExtents, Quaternion.identity, PlacementCheckMask, QueryTriggerInteraction.Ignore))
-                    {
-                        //Debug.Log("Tower Placed");
-                        GameManager.instance.towersPlaced += 1;
-                        TowerCollider.isTrigger = false;
-                        selectedTower.GetComponent<TowerBehaviour>().canShoot = true;
-                        selectedTower = null;
-                        if (archer == true)
-                        {
-                            GameManager.instance.coinsRemaining -= archerTowerCost;
-                            archer = false;
-                        }
-                        else if (magic == true)
-                        {
-                            GameManager.instance.coinsRemaining -= magicTowerCost;
-                            magic = false;
-                        }
-                        else if (cannon == true)
-                        {
-                            GameManager.instance.coinsRemaining -= cannonTowerCost;
-                            cannon = false;
-                        }
-                    }
-                    else
-                    {
-                        //Add text on screen that tells player that they cannot place a tower in that position
-                        Debug.Log("Cannot Place Tower Here");
-                        showText = true;
-                        if (showText == true)
-                        {
-                            cannotPlaceTowerText.SetActive(true);
-                            StartCoroutine(HideText());
-                        }
-                    }                
-                }
-                else 
-                {
-                    Debug.Log("Cannot Place Tower Here");
-                    showText = true;
-                    if (showText == true)
-                    {
-                        cannotPlaceTowerText.SetActive(true);
-                        StartCoroutine(HideText());
-                    }
-                }
-            }
             }
         }
         

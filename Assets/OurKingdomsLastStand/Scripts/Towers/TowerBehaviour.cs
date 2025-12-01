@@ -7,7 +7,7 @@ public class TowerBehaviour : MonoBehaviour
     [Header("Tower Targetting")]
     public LayerMask enemyLayers;
     public float rotationSpeed = 30;
-    private float range = 20; //change size of collider dynamically
+    private float range = 10; //change size of collider dynamically
     public Transform towerPivot;
 
     [Header("Bullet Shooting")]

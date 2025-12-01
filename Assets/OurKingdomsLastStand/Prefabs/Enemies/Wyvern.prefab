@@ -1092,9 +1092,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e141cebf349c0f49a3e2adbe7c8e6cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
-  movementSpeed: 5
-  damageToEnd: 10
+  maxHealth: 50
+  movementSpeed: 13
+  damageToEnd: 5
+  coins: 50
   deathEffect: {fileID: 0}
   enemyDirection: {x: 0, y: 0, z: 0}
   health: 0

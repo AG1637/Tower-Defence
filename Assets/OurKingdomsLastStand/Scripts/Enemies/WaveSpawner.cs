@@ -9,12 +9,13 @@ public class WaveSpawner : MonoBehaviour
     public Wave[] waves;
     public Transform spawnPoint;
     private int waveIndex = 0;
-    public float timeBetweenWaves = 25; //time between waves in seconds
+    public float timeBetweenWaves = 20; //time between waves in seconds
     public float textTimer = 2; //how long "next wave" text shows
     private float countdown = 11;
     public GameObject nextwaveText;
     public TextMeshProUGUI timerText;
     private bool showText = false;
+    public bool wavesFinishedSpawning = false;
 
     public void Start()
     {
@@ -53,24 +54,31 @@ public class WaveSpawner : MonoBehaviour
 
             }
         }
+        if (wavesFinishedSpawning == true)
+        {
+            Debug.Log("WavesCompleted");
+        }
 
         IEnumerator SpawnWave()
         {
             Wave wave = waves[waveIndex];
+            waveIndex++;
+            GameManager.instance.wavesRemaining--;
             for (int z = 0; z < wave.enemies.Length; z++)
-            {
+            {            
                 for (int i = 0; i < wave.enemies[z].count; i++)
                 {
                     SpawnEnemy(wave.enemies[z].enemy);
                     yield return new WaitForSeconds(wave.spawnRate);
                 }
-                if (waveIndex == waves.Length)
+                if (waveIndex >= waves.Length)
                 {
-                    GameManager.instance.GameWon();
+                    wavesFinishedSpawning = true;
+                    //GameManager.instance.GameWon(); 
+                    //give player time to kill boss before winning game
                     this.enabled = false;
                 }
             }
-            waveIndex++;
         }
 
         void SpawnEnemy(GameObject enemy)
