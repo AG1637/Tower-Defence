@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI loseStatText;
     public TextMeshProUGUI winStatText;
+    public TextMeshProUGUI speedUpButtonText;
     [SerializeField] GameObject GameOverScreen;
     [SerializeField] GameObject GameWinScreen;
     [SerializeField] GameObject Tutorial;
@@ -73,12 +74,12 @@ public class GameManager : MonoBehaviour
         if (fastForward == true)
         {
             Time.timeScale = 2;
-            //Debug.Log("Fast Forwarding");
+            speedUpButtonText.text = ">";
         }
         if (fastForward == false)
         {
             Time.timeScale = 1;
-            //Debug.Log("Normal Speed");
+            speedUpButtonText.text = ">>";
         }
     }
 
