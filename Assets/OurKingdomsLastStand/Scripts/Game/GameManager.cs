@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public bool gameOver = false;
     public bool fastForward = false;
     public int wavesRemaining = 10;
+    public float bossTimer = 10; //time the player has to kill the boss
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI wavesText;
     public TextMeshProUGUI loseStatText;
@@ -39,6 +40,17 @@ public class GameManager : MonoBehaviour
     {
         coinText.text = "Coins: " + coinsRemaining + "";
         wavesText.text = "Waves Remaining: " + wavesRemaining;
+        if (WaveSpawner.instance.wavesFinishedSpawning == true)
+        {
+            if (bossTimer > 0)
+            {
+                bossTimer -= Time.deltaTime;
+            }
+            else if (bossTimer <= 0 && gameOver == false)
+            {
+                GameWon();
+            }
+        }
     }
 
     public void GameLost()
