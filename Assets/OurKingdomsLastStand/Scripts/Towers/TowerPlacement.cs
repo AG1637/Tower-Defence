@@ -14,6 +14,7 @@ public class TowerPlacement : MonoBehaviour
     private GameObject selectedTower;
     public GameObject cannotPlaceTowerText;
     public GameObject cannotAffordTowerText;
+    public GameObject QText;
     public TextMeshProUGUI archerCostText;
     public TextMeshProUGUI magicCostText;
     public TextMeshProUGUI cannonCostText;
@@ -31,6 +32,7 @@ public class TowerPlacement : MonoBehaviour
 
     private void Start()
     {
+        QText.SetActive(false);
         cannotPlaceTowerText.SetActive(false);
         cannotAffordTowerText.SetActive(false);
         archerCostText.text = archerTowerCost.ToString();
@@ -69,6 +71,7 @@ public class TowerPlacement : MonoBehaviour
                         {
                             //Debug.Log("Tower Placed");
                             GameManager.instance.towersPlaced += 1;
+                            QText.SetActive(true);
                             TowerCollider.isTrigger = false;
                             selectedTower.GetComponent<TowerBehaviour>().canShoot = true;
                             selectedTower = null;
@@ -91,7 +94,7 @@ public class TowerPlacement : MonoBehaviour
                         else
                         {
                             //Add text on screen that tells player that they cannot place a tower in that position
-                            Debug.Log("Cannot Place Tower Here");
+                            Debug.Log("Cannot Place Tower Here1");
                             showText = true;
                             if (showText == true)
                             {
@@ -102,7 +105,7 @@ public class TowerPlacement : MonoBehaviour
                     }
                     else 
                     {
-                        Debug.Log("Cannot Place Tower Here");
+                        Debug.Log("Cannot Place Tower Here2");
                         showText = true;
                         if (showText == true)
                         {
@@ -116,6 +119,7 @@ public class TowerPlacement : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Q))//allows player to cancel tower placement by pressing Q
             {
                 Destroy(selectedTower);
+                QText.SetActive(false);
                 selectedTower = null;
                 return;
             }
@@ -128,6 +132,7 @@ public class TowerPlacement : MonoBehaviour
     public void SetTowerToPlace(GameObject tower)
     {
         selectedTower = Instantiate(tower, Vector3.zero, Quaternion.identity);
+        QText.SetActive(true);
     }
 
     IEnumerator HideText()

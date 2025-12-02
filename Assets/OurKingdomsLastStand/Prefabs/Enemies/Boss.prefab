@@ -133,10 +133,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e141cebf349c0f49a3e2adbe7c8e6cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  movementSpeed: 15
-  damageToEnd: 10
+  maxHealth: 1000
+  movementSpeed: 3
+  damageToEnd: 100
+  coins: 500
   deathEffect: {fileID: 0}
+  enemyDirection: {x: 0, y: 0, z: 0}
   health: 0
   bulletDamage: 0
 --- !u!65 &-7583288886398475041

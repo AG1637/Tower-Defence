@@ -6,7 +6,7 @@ public class TowerBehaviour : MonoBehaviour
 {
     [Header("Tower Targetting")]
     public LayerMask enemyLayers;
-    public float rotationSpeed = 30;
+    public float rotationSpeed = 20;
     private float range = 10; //change size of collider dynamically
     public Transform towerPivot;
 
@@ -40,12 +40,13 @@ public class TowerBehaviour : MonoBehaviour
         if (target != null && canShoot == true)
         {
             Vector3 direction = (target.transform.position - transform.position);
-            direction.y = 0f; //keep only horizontal rotation
+            //direction.y = 0f;
             if (towerPivot != null)
             {
-                Vector3 aimPoint = direction + (target.enemyDirection * 100);
+                Vector3 aimPoint = direction + (target.enemyDirection * 1);
                 var desiredRot = Quaternion.LookRotation(direction);
-                towerPivot.rotation = Quaternion.Lerp(towerPivot.rotation, desiredRot, Time.deltaTime * rotationSpeed);
+                //towerPivot.rotation = Quaternion.Lerp(towerPivot.rotation, desiredRot, Time.deltaTime * rotationSpeed);
+                towerPivot.transform.LookAt(target.transform.position);
             }
 
             if (cooldown <= 0f)
