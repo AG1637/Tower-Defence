@@ -1,16 +1,13 @@
 using UnityEngine;
-using Unity.AI;
 using UnityEngine.UI;
-using Unity.Behavior;
 
-public class Enemy : MonoBehaviour
+public class BossHealthBar : MonoBehaviour
 {
-    public static Enemy instance;
     [Header("Enemy Stats to change for each enemy type")]
-    public float maxHealth = 200;
-    public float movementSpeed = 20;
-    public int damageToEnd = 10; //this the amount of damage that the castle will take if the enemy reaches the end point
-    public int coins = 30;
+    public float maxHealth = 1000;
+    public float movementSpeed = 3;
+    public int damageToEnd = 100; //this the amount of damage that the castle will take if the enemy reaches the end point
+    public int coins = 500;
     public GameObject deathEffect;
 
     public Vector3 enemyDirection;
@@ -19,16 +16,9 @@ public class Enemy : MonoBehaviour
     public float health;
     public float bulletDamage; //the amount of damage that the bullet that hit the enemy does to the enemy
     private bool hasDealtDamage = false; //check if the enemy has already dealt damage to the castle
+    public Image healthBar;
 
-    void Start()
-    {
-        target = Waypoints.points[0]; 
-        instance = this;
-        health = maxHealth;
-        transform.LookAt(target);
-    }
-
-    private void Update()
+    void Update()
     {
         enemyDirection = target.position - transform.position;
         transform.Translate(enemyDirection.normalized * movementSpeed * Time.deltaTime, Space.World);
@@ -37,6 +27,15 @@ public class Enemy : MonoBehaviour
         {
             GetNextWaypoint();
         }
+        healthBar.fillAmount = (float)health / (float)maxHealth;
+    }
+
+    void Start()
+    {
+        target = Waypoints.points[0];
+        health = maxHealth;
+        transform.LookAt(target);
+        healthBar.fillAmount = health / maxHealth;
     }
 
     void GetNextWaypoint()
@@ -48,7 +47,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        health -= amount; 
+        health -= amount;
         if (health <= 0)
         {
             Die();

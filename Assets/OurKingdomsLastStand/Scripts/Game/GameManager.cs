@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public bool gameOver = false;
     public bool fastForward = false;
     public int wavesRemaining = 10;
-    public float bossTimer = 10; //time the player has to kill the boss
+    public float bossTimer = 150; //time the player has to kill the boss
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI wavesText;
     public TextMeshProUGUI loseStatText;
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         GameWinScreen.SetActive(true);
         Time.timeScale = 0;
         paused = true;
-        LevelTracker.instance.currentLevel += 1;
+        //LevelTracker.instance.currentLevel += 1;
 
     }
     public void LoadLevel2()

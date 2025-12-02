@@ -130,8 +130,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6847772542020607632}
   - component: {fileID: 6923065221997536644}
-  - component: {fileID: 3203943830877290928}
   - component: {fileID: 2452548471155066903}
+  - component: {fileID: 2595514536322366848}
   m_Layer: 3
   m_Name: CannonTowerL1
   m_TagString: CannotPlaceTowers
@@ -149,7 +149,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.83, y: -0.55, z: -43.95}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8801792256373121167}
@@ -176,27 +176,6 @@ MonoBehaviour:
   bulletPool: {fileID: 0}
   fireRate: 1
   canShoot: 0
---- !u!65 &3203943830877290928
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3484569362665850336}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.3575172, y: 5.1092806, z: 12.45813}
-  m_Center: {x: 0.6852735, y: 5.4685388, z: -1.0386467}
 --- !u!135 &2452548471155066903
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -218,6 +197,27 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &2595514536322366848
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484569362665850336}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 11, y: 8.5, z: 11.1}
+  m_Center: {x: 0, y: 5.214373, z: 0}
 --- !u!1 &3960761614916717555
 GameObject:
   m_ObjectHideFlags: 0
