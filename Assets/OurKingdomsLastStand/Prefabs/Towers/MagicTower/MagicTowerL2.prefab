@@ -131,9 +131,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798097850211980777}
-  - component: {fileID: 3078785660187829655}
   - component: {fileID: 2255632918498794541}
   - component: {fileID: 4095263759934039393}
+  - component: {fileID: -2702346065390355304}
   m_Layer: 3
   m_Name: MagicTowerL2
   m_TagString: CannotPlaceTowers
@@ -158,27 +158,6 @@ Transform:
   - {fileID: 7567994808528176706}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3078785660187829655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6410516022178853733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e5aa5d67fa6fb7439866eec2ea1f3b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  rotationSpeed: 20
-  towerPivot: {fileID: 6252134543686825994}
-  bulletSpawn: {fileID: 2880743876969006319}
-  bulletPool: {fileID: 0}
-  fireRate: 1
-  canShoot: 0
 --- !u!65 &2255632918498794541
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -221,6 +200,27 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 22
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-2702346065390355304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6410516022178853733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5aa5d67fa6fb7439866eec2ea1f3b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  rotationSpeed: 20
+  towerPivot: {fileID: 6252134543686825994}
+  bulletSpawn: {fileID: 2880743876969006319}
+  bulletPool: {fileID: 0}
+  fireRate: 1.2
+  canShoot: 0
 --- !u!1 &6604953554864345135
 GameObject:
   m_ObjectHideFlags: 0
