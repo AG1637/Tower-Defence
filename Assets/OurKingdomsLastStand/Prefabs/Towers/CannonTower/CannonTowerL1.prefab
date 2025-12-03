@@ -26,14 +26,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73041174843142095}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.053631194, y: 0.72871995, z: 0.025561213}
+  m_LocalRotation: {x: 0, y: 0.8871719, z: -0, w: -0.46143904}
+  m_LocalPosition: {x: 0.029333076, y: 0.732, z: 0.2133374}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3709095761613739636}
   m_Father: {fileID: 7633163813145065538}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 234.96, z: 0}
 --- !u!33 &704547432959849992
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -112,14 +112,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3306820723349986066}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.315, y: 2.858, z: -0.042}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.19, y: 8.09, z: -1.11}
+  m_LocalScale: {x: 2.7400002, y: 2.7400002, z: 2.7400002}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4168024265815944644}
-  m_Father: {fileID: 8801792256373121167}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_Father: {fileID: 6847772542020607632}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3484569362665850336
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +152,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7633163813145065538}
   - {fileID: 8801792256373121167}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -174,7 +175,7 @@ MonoBehaviour:
   towerPivot: {fileID: 7633163813145065538}
   bulletSpawn: {fileID: 3709095761613739636}
   bulletPool: {fileID: 0}
-  fireRate: 1
+  fireRate: 0.3
   canShoot: 0
 --- !u!135 &2452548471155066903
 SphereCollider:
@@ -195,7 +196,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 20
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &2595514536322366848
 BoxCollider:
@@ -261,7 +262,7 @@ GameObject:
   - component: {fileID: 7331535584649604992}
   - component: {fileID: 7978805233289109334}
   m_Layer: 3
-  m_Name: Cannon1
+  m_Name: TowerStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,14 +276,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4053456142013706523}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.70898616, z: -0, w: 0.7052224}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.74, y: 2.74, z: 2.74}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 7633163813145065538}
+  m_Children: []
   m_Father: {fileID: 6847772542020607632}
-  m_LocalEulerAnglesHint: {x: 0, y: -89.508, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &7331535584649604992
 MeshFilter:
   m_ObjectHideFlags: 0
