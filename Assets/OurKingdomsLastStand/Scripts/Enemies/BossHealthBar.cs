@@ -16,7 +16,8 @@ public class BossHealthBar : MonoBehaviour
     public float health;
     public float bulletDamage; //the amount of damage that the bullet that hit the enemy does to the enemy
     private bool hasDealtDamage = false; //check if the enemy has already dealt damage to the castle
-    public Image healthBar;
+    public Image healthBarFill;
+    public GameObject healthBar;
 
     void Update()
     {
@@ -27,7 +28,8 @@ public class BossHealthBar : MonoBehaviour
         {
             GetNextWaypoint();
         }
-        healthBar.fillAmount = (float)health / (float)maxHealth;
+        healthBarFill.fillAmount = (float)health / (float)maxHealth;
+        healthBar.transform.LookAt(CameraMovement.instance.playerCamera.transform);
     }
 
     void Start()
@@ -35,7 +37,7 @@ public class BossHealthBar : MonoBehaviour
         target = Waypoints.points[0];
         health = maxHealth;
         transform.LookAt(target);
-        healthBar.fillAmount = health / maxHealth;
+        healthBarFill.fillAmount = health / maxHealth;
     }
 
     void GetNextWaypoint()

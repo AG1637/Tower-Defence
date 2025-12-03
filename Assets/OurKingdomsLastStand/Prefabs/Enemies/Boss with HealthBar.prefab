@@ -23,7 +23,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2747291020931634855}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2962501, y: 1.29625, z: 1.2962501}
   m_ConstrainProportionsScale: 0
@@ -31,7 +31,7 @@ RectTransform:
   - {fileID: 6529515011153319138}
   - {fileID: 3552787140283565159}
   m_Father: {fileID: 8954074567020876063}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.31, y: 0.14}
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5916882921205808056
@@ -377,7 +377,8 @@ MonoBehaviour:
   enemyDirection: {x: 0, y: 0, z: 0}
   health: 0
   bulletDamage: 0
-  healthBar: {fileID: 812180006892782298}
+  healthBarFill: {fileID: 812180006892782298}
+  healthBar: {fileID: 2747291020931634855}
 --- !u!1 &7073170317178289555
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,14 +405,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7073170317178289555}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.43658593, y: 0.832909, z: 0.43658593}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7141284826916287585}
   m_Father: {fileID: 2831456441411910073}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 4.83}

@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class CameraMovement : MonoBehaviour
 {
+    public static CameraMovement instance;
     public Camera playerCamera;
     private float walkSpeed = 20f;
     private float runSpeed = 40f;
@@ -18,6 +19,7 @@ public class CameraMovement : MonoBehaviour
 
     void Start()
     {
+        instance = this;
         characterController = GetComponent<CharacterController>();
     }
 
