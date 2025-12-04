@@ -90,7 +90,7 @@ public class Enemy : MonoBehaviour
             {
                 Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
             }
-            other.gameObject.SetActive(false); //makes bullet disappear
+            Destroy(other.gameObject);
         }
     }
 }

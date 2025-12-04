@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
         GameWinScreen.SetActive(true);
         Time.timeScale = 0;
         paused = true;
-        //LevelTracker.instance.currentLevel += 1;
+        LevelTracker.instance.currentLevel += 1;
 
     }
     public void LoadLevel2()

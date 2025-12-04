@@ -145,6 +145,7 @@ public class TowerBehaviour : MonoBehaviour
         }
     }
 
+
     private void OnMouseDown()
     {
         upgradeCanvas.SetActive(true);

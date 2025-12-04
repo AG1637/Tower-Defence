@@ -1094,7 +1094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   movementSpeed: 13
-  damageToEnd: 5
+  damageToEnd: 10
   coins: 75
   deathEffect: {fileID: 0}
   hitEffectPrefab: {fileID: 0}
