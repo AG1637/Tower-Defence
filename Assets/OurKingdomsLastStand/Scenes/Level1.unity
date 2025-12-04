@@ -3273,7 +3273,7 @@ MonoBehaviour:
         m_MethodName: ArcherTowerCost
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1611694437068747581, guid: 41db687d6773075499b21d47024ded90, type: 3}
+          m_ObjectArgument: {fileID: 8230664089517789542, guid: 974b035bb88a40d4d8ed088362700a0e, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -5378,7 +5378,7 @@ MonoBehaviour:
         m_MethodName: MagicTowerCost
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8695385158630912531, guid: b24369a59897452429a50e2d03a91f84, type: 3}
+          m_ObjectArgument: {fileID: 4124186373090027623, guid: a2df353fba0347943abc6d79c1a92360, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -5736,7 +5736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.2000122, y: -5.9000244}
+  m_AnchoredPosition: {x: 1.2000122, y: -5.900009}
   m_SizeDelta: {x: -479.8314, y: -371.5299}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &607494761
@@ -8494,7 +8494,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 12.571411, y: -8.748169}
+  m_AnchoredPosition: {x: 12.571411, y: -8.748276}
   m_SizeDelta: {x: 66.898, y: 47.7709}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &957667471
@@ -8752,7 +8752,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.2000122, y: -5.9000244}
+  m_AnchoredPosition: {x: 1.2000122, y: -5.900009}
   m_SizeDelta: {x: -479.8314, y: -371.5299}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &998240414
@@ -9714,7 +9714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 12.571411, y: -8.748169}
+  m_AnchoredPosition: {x: 12.571411, y: -8.748276}
   m_SizeDelta: {x: 66.898, y: 47.7709}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1117634969
@@ -13259,10 +13259,18 @@ MonoBehaviour:
     the dark forces have started taking over.
   - Place towers to defeat enemies and defend our castle, but remember they will
     cost you money so be strategic with where you place them.
-  - I will give you 500 coins to get you started but you can get more by defeating
+  - 'There are three types of towers. Archer towers cost 150 coins and have long
+    range weapons with moderate damage. Magic towers cost 250 coins and Cannon towers
+    cost 300 coins and have slow firing rate however they do the most damage.  '
+  - These tower stats can be upgraded by clicking on the tower. You can also sell
+    them here if you want money back (you will not get the full amount, so be careful)
+  - I will give you 1000 coins to get you started but you can get more by defeating
     enemies.
-  - Anyway I hear the first wave of enemies on their way so I will leave you to get
-    prepared for their arrival.
+  - There are three enemy types. Knights are slow and have high health but give you
+    the most coins. Soldiers have moderate health and give you 100 coins. Wyvern
+    fly over the other enemies and are quick but the don't have much health.
+  - Anyway I've told you enough and I hear the first wave of enemies on their way
+    so I will leave you to get prepared.
   textSpeed: 0
 --- !u!1001 &1701427423
 PrefabInstance:
@@ -16320,7 +16328,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 12.571411, y: -8.748169}
+  m_AnchoredPosition: {x: 12.571411, y: -8.748276}
   m_SizeDelta: {x: 66.898, y: 47.7709}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2018098437
@@ -16755,7 +16763,7 @@ MonoBehaviour:
         m_MethodName: CannonTowerCost
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 3484569362665850336, guid: e2eeed8799859ad41813c05bae15b818, type: 3}
+          m_ObjectArgument: {fileID: 5519502117230264952, guid: 04dc50758db08a442ab3de95a2ebbd61, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0

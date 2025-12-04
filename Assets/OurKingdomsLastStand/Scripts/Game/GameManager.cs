@@ -142,13 +142,13 @@ public class GameManager : MonoBehaviour
         slowPowerUp.interactable = false;
         speedUp.interactable = false;
         coinsRemaining -= 500;
-        Debug.Log("Slow Power-Up Started");
+        //Debug.Log("Slow Power-Up Started");
         Invoke("NormalSpeed", 7.5f);
     }
 
     public void NormalSpeed()
     {
-        Debug.Log("Slow Power-Up Ended");
+        //Debug.Log("Slow Power-Up Ended");
         Time.timeScale = 1;
         slowPowerUpActive = false;
         slowPowerUp.interactable = true;
@@ -162,7 +162,7 @@ public class GameManager : MonoBehaviour
         freezePowerUpActive = true;
         coinsRemaining -= 750;
         freezePowerUp.interactable = false;
-        Debug.Log("Freeze Power-Up Started");
+        //Debug.Log("Freeze Power-Up Started");
         Invoke("Unfreeze", 10);
     }
     public void Unfreeze()
@@ -170,6 +170,6 @@ public class GameManager : MonoBehaviour
         Enemy.instance.movementSpeed = currentEnemySpeed;
         freezePowerUpActive = false;
         freezePowerUp.interactable = true;
-        Debug.Log("Freeze Power-Up Ended");
+        //Debug.Log("Freeze Power-Up Ended");
     }
 }

@@ -85,7 +85,7 @@ public class Enemy : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             TakeDamage(other.GetComponent<Bullet>().damage); //gets reference to bullet script to get damage amount       
-            Debug.Log("Hit");
+            //Debug.Log("Hit");
             if (hitEffectPrefab != null)
             {
                 Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);

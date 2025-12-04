@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
     [Header("Bullet Stats")]
     private float speed = 100f;
     public float lifeTime = 5f; 
-    public float damage = 25f;
+    public float damage;
     float spawnTime;
 
     [Header("VFX")]
@@ -18,6 +18,7 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
+        damage = TowerBehaviour.instance.damage;
         //Move forward in local space
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
         if (Time.time - spawnTime >= lifeTime)

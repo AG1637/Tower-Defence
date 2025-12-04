@@ -1,11 +1,13 @@
 using System.Drawing;
-using Unity.AppUI.UI;
+using UnityEngine.UI;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
+using TMPro;
 
 public class TowerBehaviour : MonoBehaviour
 {
+    public static TowerBehaviour instance;
     [Header("Tower Targetting")]
     public LayerMask enemyLayers;
     public float rotationSpeed = 20;
@@ -16,12 +18,27 @@ public class TowerBehaviour : MonoBehaviour
     public Transform bulletSpawn;
     public ProjectilePool bulletPool;
     public float fireRate = 0.1f;
+    public float damage = 25f;
     public GameObject shootEffect;
     public AudioClip shootSound;
     public AudioSource audioSource;
-
     private float cooldown;
     public bool canShoot = false;
+
+    [Header("Upgrade")]
+    public GameObject level1;
+    public GameObject level2;
+    public GameObject level3;
+    public GameObject upgradeCanvas;
+    public Button upgradeButton;
+    public TextMeshProUGUI upgradeButtonText;
+    public TextMeshProUGUI levelText;
+    public TextMeshProUGUI upgradeCost;
+    public TextMeshProUGUI sellAmount;
+    public int level = 1;
+    public int upgradePrice = 100;
+    public int sellPrice = 50;
+    public bool maxUpgrade = false;
 
     public void Initialize(ProjectilePool pool, Transform bulletSpawnTransform, Transform towerPivotTransform = null)
     {
@@ -32,11 +49,15 @@ public class TowerBehaviour : MonoBehaviour
 
     void Start()
     {
+        instance = this;
+        SphereCollider sc = GetComponent<SphereCollider>();
+        range = sc.radius;
         if (bulletPool == null)
         {
             bulletPool = FindFirstObjectByType<ProjectilePool>();
         }
     }
+
     void Update()
     {
         var target = FindNearestEnemy();
@@ -57,8 +78,36 @@ public class TowerBehaviour : MonoBehaviour
                 cooldown = 1f / Mathf.Max(0.0001f, fireRate);
             }
         }
-
+        upgradeCanvas.transform.LookAt(CameraMovement.instance.playerCamera.transform);
+        levelText.text = ("Level " + level.ToString());
+        upgradeCost.text = ("( -" + upgradePrice.ToString() + ")");
+        sellAmount.text = ("( +" + sellPrice.ToString() + " )");
+        SphereCollider sc = GetComponent<SphereCollider>();
+        sc.radius = range;
         cooldown -= Time.deltaTime;
+        //CHECK TOWER LEVEL
+        if (level == 1)
+        {
+            level1.SetActive(true);
+            level2.SetActive(false);
+            level3.SetActive(false);
+        }
+        else if (level == 2)
+        {
+            level1.SetActive(false);
+            level2.SetActive(true);
+            level3.SetActive(false);
+        }
+        else if (level == 3)
+        {
+            level1.SetActive(false);
+            level2.SetActive(false);
+            level3.SetActive(true);
+            upgradeButtonText.text = ("MAX");
+            maxUpgrade = true;
+            upgradeButton.interactable = false;
+            upgradeCost.text = ("");   
+        }
     }
 
     Enemy FindNearestEnemy()
@@ -98,6 +147,42 @@ public class TowerBehaviour : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log(name + "Tower Selected");
+        upgradeCanvas.SetActive(true);
     }
+
+    public void Upgrade()
+    {
+        if (maxUpgrade == true) { return; }
+        if (GameManager.instance.coinsRemaining >= upgradePrice)
+        {
+            GameManager.instance.coinsRemaining -= upgradePrice;
+            //Debug.Log("Upgrade");
+            level++;
+            upgradePrice += 100;
+            sellPrice += 100;
+            upgradeCanvas.SetActive(false);
+            //Upgrade tower stats
+            fireRate *= 1.2f;
+            damage *= 1.35f;
+            range *= 1.3f;
+        }
+        else 
+        {
+            TowerPlacement.instance.cannotAffordTowerText.SetActive(true);
+            TowerPlacement.instance.StartCoroutine(TowerPlacement.instance.HideText());
+        }
+    }
+
+    public void Sell()
+    {
+        //Debug.Log("Sell");
+        GameManager.instance.coinsRemaining += sellPrice;
+        Destroy(gameObject);
+    }
+
+    public void CloseUpgradeCanvas()
+    {
+        upgradeCanvas.SetActive(false);
+    }
+
 }

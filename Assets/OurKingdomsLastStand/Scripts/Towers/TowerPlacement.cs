@@ -7,6 +7,7 @@ using System.Collections;
 
 public class TowerPlacement : MonoBehaviour
 {
+    public static TowerPlacement instance;
     [SerializeField] private LayerMask PlacementCheckMask;
     [SerializeField] private LayerMask PlacementCollideMask;
     [SerializeField] private Camera PlayerCamera;
@@ -32,6 +33,7 @@ public class TowerPlacement : MonoBehaviour
 
     private void Start()
     {
+        instance = this;
         QText.SetActive(false);
         cannotPlaceTowerText.SetActive(false);
         cannotAffordTowerText.SetActive(false);
@@ -71,7 +73,7 @@ public class TowerPlacement : MonoBehaviour
                         {
                             //Debug.Log("Tower Placed");
                             GameManager.instance.towersPlaced += 1;
-                            QText.SetActive(true);
+                            QText.SetActive(false);
                             TowerCollider.isTrigger = false;
                             selectedTower.GetComponent<TowerBehaviour>().canShoot = true;
                             selectedTower = null;
@@ -94,7 +96,7 @@ public class TowerPlacement : MonoBehaviour
                         else
                         {
                             //Add text on screen that tells player that they cannot place a tower in that position
-                            Debug.Log("Cannot Place Tower Here1");
+                            //Debug.Log("Cannot Place Tower Here1");
                             showText = true;
                             if (showText == true)
                             {
@@ -105,7 +107,7 @@ public class TowerPlacement : MonoBehaviour
                     }
                     else 
                     {
-                        Debug.Log("Cannot Place Tower Here2");
+                        //Debug.Log("Cannot Place Tower Here2");
                         showText = true;
                         if (showText == true)
                         {
@@ -135,7 +137,7 @@ public class TowerPlacement : MonoBehaviour
         QText.SetActive(true);
     }
 
-    IEnumerator HideText()
+    public IEnumerator HideText()
     {
         yield return new WaitForSeconds(2);
         showText = false;
