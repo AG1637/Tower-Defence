@@ -1,3 +1,4 @@
+using Microsoft.Win32.SafeHandles;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,6 +31,10 @@ public class BossHealthBar : MonoBehaviour
         }
         healthBarFill.fillAmount = (float)health / (float)maxHealth;
         healthBar.transform.LookAt(CameraMovement.instance.playerCamera.transform);
+        if (health <= 0)
+        {
+            Die();
+        }
     }
 
     void Start()
@@ -50,23 +55,19 @@ public class BossHealthBar : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
-        if (health <= 0)
-        {
-            Die();
-        }
-
-        void Die()
-        {
-            if (deathEffect != null) //add death effect when enemy dies - needs adding to the prefab in inspector
-            {
-                Instantiate(deathEffect, transform.position, Quaternion.identity);
-            }
-            Destroy(gameObject);
-            //When enemy dies update GameManager stats
-            GameManager.instance.enemiesDefeated += 1;
-            GameManager.instance.coinsRemaining += 30;
-        }
     }
+    public void Die()
+    {
+        if (deathEffect != null) //add death effect when enemy dies - needs adding to the prefab in inspector
+        {
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+        }
+        Destroy(gameObject);
+        //When enemy dies update GameManager stats
+        GameManager.instance.enemiesDefeated += 1;
+        GameManager.instance.coinsRemaining += coins;
+    }
+
 
     private void OnTriggerEnter(Collider other) //detect when enemy reaches the end point and destroys itself as well as reducing player health
     {
@@ -85,11 +86,6 @@ public class BossHealthBar : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             TakeDamage(other.GetComponent<Bullet>().damage); //gets reference to bullet script to get damage amount       
-            //Debug.Log("Hit");
-            /*if (hitEffectPrefab != null)
-            {
-                Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
-            }*/
             other.gameObject.SetActive(false); //makes bullet disappear
         }
     }

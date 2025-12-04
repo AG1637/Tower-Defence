@@ -347,7 +347,7 @@ MonoBehaviour:
   maxHealth: 250
   movementSpeed: 5
   damageToEnd: 20
-  coins: 150
+  coins: 125
   deathEffect: {fileID: 0}
   hitEffectPrefab: {fileID: 0}
   enemyDirection: {x: 0, y: 0, z: 0}

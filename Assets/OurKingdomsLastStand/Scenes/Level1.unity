@@ -6301,10 +6301,6 @@ MonoBehaviour:
   waves:
   - spawnRate: 3
     enemies:
-    - enemy: {fileID: 6110387723462113062, guid: 3de694068e3dde04a8eab95601330e20, type: 3}
-      count: 1
-  - spawnRate: 3
-    enemies:
     - enemy: {fileID: 2771163930223965820, guid: 7570cc01091d8474db18aa561d474d71, type: 3}
       count: 4
     - enemy: {fileID: 4705199274033409003, guid: 1cfbd67a6119e8f47806571e93b140f4, type: 3}
@@ -6380,6 +6376,10 @@ MonoBehaviour:
     - enemy: {fileID: 2771163930223965820, guid: 7570cc01091d8474db18aa561d474d71, type: 3}
       count: 2
     - enemy: {fileID: 4705199274033409003, guid: 1cfbd67a6119e8f47806571e93b140f4, type: 3}
+      count: 1
+  - spawnRate: 2
+    enemies:
+    - enemy: {fileID: 6110387723462113062, guid: 3de694068e3dde04a8eab95601330e20, type: 3}
       count: 1
   - spawnRate: 3
     enemies: []
@@ -13267,7 +13267,7 @@ MonoBehaviour:
   - I will give you 750 coins to get you started but you can get more by defeating
     enemies.
   - There are three enemy types. Knights are slow and have high health but give you
-    the most coins. Soldiers have moderate health and give you 100 coins. Wyvern
+    the most coins. Soldiers have moderate health and give you 75 coins. Wyverns
     fly over the other enemies and are quick but the don't have much health.
   - Anyway I've told you enough and I hear the first wave of enemies on their way
     so I will leave you to get prepared.
