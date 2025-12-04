@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             //When enemy dies update GameManager stats
             GameManager.instance.enemiesDefeated += 1;
-            GameManager.instance.coinsRemaining += 30;
+            GameManager.instance.coinsRemaining += coins;
         }
     }
 
