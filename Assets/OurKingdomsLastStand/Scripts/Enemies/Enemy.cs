@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public int damageToEnd = 10; //this the amount of damage that the castle will take if the enemy reaches the end point
     public int coins = 30;
     public GameObject deathEffect;
+    public GameObject hitEffectPrefab;
 
     public Vector3 enemyDirection;
     private Transform target;
@@ -85,10 +86,10 @@ public class Enemy : MonoBehaviour
         {
             TakeDamage(other.GetComponent<Bullet>().damage); //gets reference to bullet script to get damage amount       
             Debug.Log("Hit");
-            /*if (hitEffectPrefab != null)
+            if (hitEffectPrefab != null)
             {
                 Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
-            }*/
+            }
             other.gameObject.SetActive(false); //makes bullet disappear
         }
     }

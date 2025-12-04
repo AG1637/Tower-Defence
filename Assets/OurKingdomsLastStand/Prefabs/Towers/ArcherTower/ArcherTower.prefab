@@ -1,0 +1,230 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8230664089517789542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8938048351724890446}
+  m_Layer: 0
+  m_Name: ArcherTower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8938048351724890446
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8230664089517789542}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -237.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8759558971074486108}
+  - {fileID: 799153672628462974}
+  - {fileID: 2102250803323026674}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &484973659634575154
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8938048351724890446}
+    m_Modifications:
+    - target: {fileID: 1987856614222830528, guid: 40a843d119ffd5449b41e16290e7704f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987856614222830528, guid: 40a843d119ffd5449b41e16290e7704f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987856614222830528, guid: 40a843d119ffd5449b41e16290e7704f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987856614222830528, guid: 40a843d119ffd5449b41e16290e7704f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987856614222830528, guid: 40a843d119ffd5449b41e16290e7704f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987856614222830528, guid: 40a843d119ffd5449b41e16290e7704f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987856614222830528, guid: 40a843d119ffd5449b41e16290e7704f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987856614222830528, guid: 40a843d119ffd5449b41e16290e7704f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987856614222830528, guid: 40a843d119ffd5449b41e16290e7704f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987856614222830528, guid: 40a843d119ffd5449b41e16290e7704f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3130722713738928593, guid: 40a843d119ffd5449b41e16290e7704f, type: 3}
+      propertyPath: m_Name
+      value: ArcherTowerL3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3130722713738928593, guid: 40a843d119ffd5449b41e16290e7704f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 40a843d119ffd5449b41e16290e7704f, type: 3}
+--- !u!4 &2102250803323026674 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1987856614222830528, guid: 40a843d119ffd5449b41e16290e7704f, type: 3}
+  m_PrefabInstance: {fileID: 484973659634575154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7555984679865085479
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8938048351724890446}
+    m_Modifications:
+    - target: {fileID: 7190957845004749657, guid: 43ef03e68b0974643872460ed6683825, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190957845004749657, guid: 43ef03e68b0974643872460ed6683825, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190957845004749657, guid: 43ef03e68b0974643872460ed6683825, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190957845004749657, guid: 43ef03e68b0974643872460ed6683825, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190957845004749657, guid: 43ef03e68b0974643872460ed6683825, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190957845004749657, guid: 43ef03e68b0974643872460ed6683825, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190957845004749657, guid: 43ef03e68b0974643872460ed6683825, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190957845004749657, guid: 43ef03e68b0974643872460ed6683825, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190957845004749657, guid: 43ef03e68b0974643872460ed6683825, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190957845004749657, guid: 43ef03e68b0974643872460ed6683825, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223642685097644309, guid: 43ef03e68b0974643872460ed6683825, type: 3}
+      propertyPath: m_Name
+      value: ArcherTowerL2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223642685097644309, guid: 43ef03e68b0974643872460ed6683825, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 43ef03e68b0974643872460ed6683825, type: 3}
+--- !u!4 &799153672628462974 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7190957845004749657, guid: 43ef03e68b0974643872460ed6683825, type: 3}
+  m_PrefabInstance: {fileID: 7555984679865085479}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7828146048523153612
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8938048351724890446}
+    m_Modifications:
+    - target: {fileID: 1527596731613753232, guid: 41db687d6773075499b21d47024ded90, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527596731613753232, guid: 41db687d6773075499b21d47024ded90, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527596731613753232, guid: 41db687d6773075499b21d47024ded90, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527596731613753232, guid: 41db687d6773075499b21d47024ded90, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527596731613753232, guid: 41db687d6773075499b21d47024ded90, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527596731613753232, guid: 41db687d6773075499b21d47024ded90, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527596731613753232, guid: 41db687d6773075499b21d47024ded90, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527596731613753232, guid: 41db687d6773075499b21d47024ded90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527596731613753232, guid: 41db687d6773075499b21d47024ded90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527596731613753232, guid: 41db687d6773075499b21d47024ded90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611694437068747581, guid: 41db687d6773075499b21d47024ded90, type: 3}
+      propertyPath: m_Name
+      value: ArcherTowerL1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 41db687d6773075499b21d47024ded90, type: 3}
+--- !u!4 &8759558971074486108 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1527596731613753232, guid: 41db687d6773075499b21d47024ded90, type: 3}
+  m_PrefabInstance: {fileID: 7828146048523153612}
+  m_PrefabAsset: {fileID: 0}

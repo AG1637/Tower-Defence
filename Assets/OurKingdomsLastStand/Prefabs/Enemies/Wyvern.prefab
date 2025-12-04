@@ -1095,8 +1095,9 @@ MonoBehaviour:
   maxHealth: 50
   movementSpeed: 13
   damageToEnd: 5
-  coins: 50
+  coins: 100
   deathEffect: {fileID: 0}
+  hitEffectPrefab: {fileID: 0}
   enemyDirection: {x: 0, y: 0, z: 0}
   health: 0
   bulletDamage: 0
@@ -1120,7 +1121,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.044311345, y: 0.047883205, z: 0.071561016}
-  m_Center: {x: -0.00051713217, y: 0.12, z: 0.013472545}
+  m_Center: {x: -0.00051713217, y: 0, z: 0.013472545}
 --- !u!54 &-3487676155239899714
 Rigidbody:
   m_ObjectHideFlags: 0

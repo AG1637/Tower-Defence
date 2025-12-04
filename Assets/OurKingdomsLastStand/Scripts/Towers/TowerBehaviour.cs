@@ -2,6 +2,7 @@ using System.Drawing;
 using Unity.AppUI.UI;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class TowerBehaviour : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class TowerBehaviour : MonoBehaviour
     public Transform bulletSpawn;
     public ProjectilePool bulletPool;
     public float fireRate = 0.1f;
+    public GameObject shootEffect;
+    public AudioClip shootSound;
+    public AudioSource audioSource;
 
     private float cooldown;
     public bool canShoot = false;
@@ -76,12 +80,24 @@ public class TowerBehaviour : MonoBehaviour
 
     void Shoot()
     {
-            if (bulletPool == null || bulletSpawn == null)
-            {
-                return;
-            }
-            var projGO = bulletPool.Spawn(bulletSpawn.position, bulletSpawn.rotation);
-            var proj = projGO.GetComponent<Bullet>();
-            //play flash/sound here
+        if (bulletPool == null || bulletSpawn == null)
+        {
+            return;
+        }
+        var projGO = bulletPool.Spawn(bulletSpawn.position, bulletSpawn.rotation);
+        var proj = projGO.GetComponent<Bullet>();
+        if (shootEffect != null)
+        {
+            Instantiate(shootEffect, transform.position, Quaternion.identity);
+        }
+        if (shootSound != null)
+        {
+            audioSource.PlayOneShot(shootSound);
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        Debug.Log(name + "Tower Selected");
     }
 }

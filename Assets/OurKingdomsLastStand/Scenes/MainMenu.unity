@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2023304}
   - component: {fileID: 2023303}
-  - component: {fileID: 2023305}
   m_Layer: 0
   m_Name: NotDestroyed
   m_TagString: Untagged
@@ -165,103 +164,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &2023305
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023302}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -2541837100705837284, guid: c5f51b0c2fd2791428e7120d1b84debc, type: 2}
-  m_audioClip: {fileID: 8300000, guid: e5e194f9424ec2f47894aca5d4468a1d, type: 3}
-  m_Resource: {fileID: 8300000, guid: e5e194f9424ec2f47894aca5d4468a1d, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &45606811
 GameObject:
   m_ObjectHideFlags: 0
@@ -3176,8 +3078,9 @@ MonoBehaviour:
     Knights - \"Knight Walking!\" (https://skfb.ly/6YZVH) by trmhtk2 is licensed
     under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).\nFlying
     Creatures - \"Wyvern\" (https://skfb.ly/oApGr) by DibArts is licensed under Creative
-    Commons Attribution (http://creativecommons.org/licenses/by/4.0/).\nBoss -  \nKing
-    Alden Sprite Pack - https://assetstore. unity.com/packages/2d/characters/medieval-king-pack-2-174863\n\nFonts:\nhttps://www.fontspace.com/old-english-five-font-f44962\nhttps://www.fontspace.com/blue-bubbles-font-f115371\nhttps://www.fontspace.com/yakin-font-f93241\nhttps://www.fontspace.com/silly-hand-script-font-f40924\n\nTextures:\nPath
+    Commons Attribution (http://creativecommons.org/licenses/by/4.0/).\nKing Alden
+    Sprite Pack - https://assetstore. unity.com/packages/2d/characters/medieval-king-pack-2-174863\nParticles
+    effects - https://assetstore.unity.com/packages/vfx/particles/simple-particles-fx-toon-effects-244171\n\nFonts:\nhttps://www.fontspace.com/old-english-five-font-f44962\nhttps://www.fontspace.com/blue-bubbles-font-f115371\nhttps://www.fontspace.com/yakin-font-f93241\nhttps://www.fontspace.com/silly-hand-script-font-f40924\n\nTextures:\nPath
     - https://polyhaven.com/a/worn_ rock_natural_01\nGrass - https://polyhaven.com/a/
     forrest_ground_01\n\nMusic:\nBackground Music - https://uppbeat.io/track/ kevin-macleod/celtic-impulse\n\nOther:\nGame
     Icons - https://prinbles.itch.io/ under#download \nCastle Image -  https://pixabay.com/
@@ -10017,6 +9920,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1924568256}
   - component: {fileID: 1924568257}
+  - component: {fileID: 1924568258}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -10060,6 +9964,103 @@ MonoBehaviour:
   Level7Button: {fileID: 880751913}
   Level8Button: {fileID: 45606811}
   Level9Button: {fileID: 2142214984}
+--- !u!82 &1924568258
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924568255}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -2541837100705837284, guid: c5f51b0c2fd2791428e7120d1b84debc, type: 2}
+  m_audioClip: {fileID: 8300000, guid: e5e194f9424ec2f47894aca5d4468a1d, type: 3}
+  m_Resource: {fileID: 8300000, guid: e5e194f9424ec2f47894aca5d4468a1d, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1936658122
 GameObject:
   m_ObjectHideFlags: 0
